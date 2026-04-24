@@ -83,12 +83,12 @@ export default function LandingPage() {
     premium:
       "https://wa.me/919664003370?text=" +
       encodeURIComponent(
-        "Namaste! I want to book the Premium ₹500 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details."
+        "Namaste! I want to book the Premium ₹500 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details.",
       ),
     general:
       "https://wa.me/919664003370?text=" +
       encodeURIComponent(
-        "Namaste! I want to book the General ₹200 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details."
+        "Namaste! I want to book the General ₹200 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details.",
       ),
   });
 
@@ -148,13 +148,17 @@ export default function LandingPage() {
   };
 
   const waLink = `https://wa.me/${whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
-    "Namaste, I have a question about the Anand Chakra event in Vadodara (31 May 2026)."
+    "Namaste, I have a question about the Anand Chakra event in Vadodara (31 May 2026).",
   )}`;
 
-  const pct = Math.min(
-    Math.round((stats.seats_booked / stats.total_seats) * 100),
-    100
-  );
+  const pct = stats?.total_seats
+    ? Math.min(
+        Math.round(
+          (Number(stats.seats_booked) / Number(stats.total_seats)) * 100,
+        ),
+        100,
+      )
+    : 0;
 
   return (
     <div className="bg-[#030305] text-[#F5ECD0] has-sticky-cta relative overflow-x-hidden">
@@ -206,10 +210,38 @@ export default function LandingPage() {
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
             </defs>
-            <circle cx="200" cy="200" r="198" fill="none" stroke="url(#mg)" strokeWidth="0.6" />
-            <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(212,167,61,0.4)" strokeWidth="0.4" />
-            <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(212,167,61,0.3)" strokeWidth="0.4" />
-            <circle cx="200" cy="200" r="80" fill="none" stroke="rgba(212,167,61,0.3)" strokeWidth="0.4" />
+            <circle
+              cx="200"
+              cy="200"
+              r="198"
+              fill="none"
+              stroke="url(#mg)"
+              strokeWidth="0.6"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="160"
+              fill="none"
+              stroke="rgba(212,167,61,0.4)"
+              strokeWidth="0.4"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="120"
+              fill="none"
+              stroke="rgba(212,167,61,0.3)"
+              strokeWidth="0.4"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="80"
+              fill="none"
+              stroke="rgba(212,167,61,0.3)"
+              strokeWidth="0.4"
+            />
             {Array.from({ length: 24 }).map((_, i) => (
               <line
                 key={i}
@@ -249,7 +281,10 @@ export default function LandingPage() {
             </a>
           </div>
 
-          <div className="max-w-3xl animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          <div
+            className="max-w-3xl animate-fade-in-up"
+            style={{ animationDelay: "0.1s" }}
+          >
             <p className="eyebrow mb-5 flex items-center gap-3">
               <Flame className="w-3.5 h-3.5 text-[#e6532a]" />
               For the first time in Vadodara
@@ -261,21 +296,29 @@ export default function LandingPage() {
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.8)" }}
             >
               Experience{" "}
-              <span className="italic font-black" style={{
-                background: "linear-gradient(180deg, #f0c149 0%, #c89a2e 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
+              <span
+                className="italic font-black"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #f0c149 0%, #c89a2e 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
                 Shiv-Shakti
               </span>
               <span className="not-italic text-[#F5ECD0] font-black"> & </span>
-              <span className="italic font-black" style={{
-                background: "linear-gradient(180deg, #f0c149 0%, #c89a2e 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
+              <span
+                className="italic font-black"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #f0c149 0%, #c89a2e 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
                 Bhairav Sadhana
               </span>
               <br />
@@ -286,24 +329,31 @@ export default function LandingPage() {
               A guided inner awakening session with{" "}
               <span className="text-[#F0C149] font-bold">Swami Yo</span>.
               <br className="hidden sm:block" />
-              Not a discourse. An <em className="text-[#F0C149]">experience</em>.
+              Not a discourse. An <em className="text-[#F0C149]">experience</em>
+              .
             </p>
 
             {/* Event meta — tighter, bolder */}
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-8">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar className="w-4 h-4 text-[#F0C149]" />
-                <span className="text-[#F5ECD0] font-semibold">31 May 2026</span>
+                <span className="text-[#F5ECD0] font-semibold">
+                  31 May 2026
+                </span>
               </div>
               <span className="hidden sm:inline text-[#B5AE97]">·</span>
               <div className="flex items-center gap-2 text-sm">
                 <Clock className="w-4 h-4 text-[#F0C149]" />
-                <span className="text-[#F5ECD0] font-semibold">7:00 – 9:00 PM</span>
+                <span className="text-[#F5ECD0] font-semibold">
+                  7:00 – 9:00 PM
+                </span>
               </div>
               <span className="hidden sm:inline text-[#B5AE97]">·</span>
               <div className="flex items-center gap-2 text-sm">
                 <MapPin className="w-4 h-4 text-[#F0C149]" />
-                <span className="text-[#F5ECD0] font-semibold">CC Mehta Auditorium, Vadodara</span>
+                <span className="text-[#F5ECD0] font-semibold">
+                  CC Mehta Auditorium, Vadodara
+                </span>
               </div>
             </div>
 
@@ -316,7 +366,9 @@ export default function LandingPage() {
                   className="btn-gold pulse-gold flex-1 sm:flex-none"
                 >
                   <span className="flex flex-col items-start leading-tight text-left">
-                    <span className="text-[10px] tracking-[0.2em] opacity-80">Premium</span>
+                    <span className="text-[10px] tracking-[0.2em] opacity-80">
+                      Premium
+                    </span>
                     <span>Book · ₹500</span>
                   </span>
                   <ArrowRight className="w-4 h-4" />
@@ -328,7 +380,9 @@ export default function LandingPage() {
                   className="btn-ghost-gold flex-1 sm:flex-none"
                 >
                   <span className="flex flex-col items-start leading-tight text-left">
-                    <span className="text-[10px] tracking-[0.2em] opacity-80">General</span>
+                    <span className="text-[10px] tracking-[0.2em] opacity-80">
+                      General
+                    </span>
                     <span>Book · ₹200</span>
                   </span>
                   <ArrowRight className="w-4 h-4" />
@@ -337,7 +391,12 @@ export default function LandingPage() {
               <div className="flex flex-wrap items-center gap-4 gap-y-2 pt-1">
                 <button
                   type="button"
-                  onClick={() => ticketsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  onClick={() =>
+                    ticketsRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                  }
                   data-testid="compare-tiers-btn"
                   className="text-[11px] tracking-[0.22em] uppercase text-[#F0C149] hover:text-[#f5d97c] underline underline-offset-4 decoration-[#F0C149]/40 hover:decoration-[#F0C149] transition font-semibold inline-flex items-center gap-1.5"
                 >
@@ -387,9 +446,21 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-6 py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-6 text-center md:text-left">
             {[
-              { icon: <Youtube className="w-6 h-6" />, stat: "1M+", label: "YouTube Subscribers" },
-              { icon: <Eye className="w-6 h-6" />, stat: "100M+", label: "Views on Spiritual Content" },
-              { icon: <Users className="w-6 h-6" />, stat: "Thousands", label: "Guided Online" },
+              {
+                icon: <Youtube className="w-6 h-6" />,
+                stat: "1M+",
+                label: "YouTube Subscribers",
+              },
+              {
+                icon: <Eye className="w-6 h-6" />,
+                stat: "100M+",
+                label: "Views on Spiritual Content",
+              },
+              {
+                icon: <Users className="w-6 h-6" />,
+                stat: "Thousands",
+                label: "Guided Online",
+              },
             ].map((t, i) => (
               <div
                 key={i}
@@ -419,17 +490,22 @@ export default function LandingPage() {
       >
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-serif text-[1.9rem] sm:text-4xl lg:text-5xl leading-[1.15] font-bold text-[#F5ECD0] italic">
-            "Most people <span className="not-italic text-[#B5AE97]">pray</span>,
+            "Most people <span className="not-italic text-[#B5AE97]">pray</span>
+            ,
             <br />
             but never{" "}
-            <span className="text-[#F0C149] not-italic" style={{ textShadow: "0 0 40px rgba(240,193,73,0.35)" }}>
+            <span
+              className="text-[#F0C149] not-italic"
+              style={{ textShadow: "0 0 40px rgba(240,193,73,0.35)" }}
+            >
               experience
             </span>
             ."
           </p>
           <div className="gold-divider my-8" />
           <p className="text-[#D4CBAF] text-base sm:text-lg max-w-xl mx-auto font-medium">
-            This is not a discourse. This is a guided sadhana — a direct inner practice.
+            This is not a discourse. This is a guided sadhana — a direct inner
+            practice.
           </p>
         </div>
       </section>
@@ -459,7 +535,10 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
             <div className="relative z-10 text-center">
               <div className="w-20 h-20 rounded-full border-2 border-[#F0C149] bg-[#F0C149]/15 backdrop-blur-md flex items-center justify-center mx-auto mb-5 group-hover:bg-[#F0C149]/25 group-hover:scale-110 transition duration-300 shadow-[0_0_40px_rgba(240,193,73,0.3)]">
-                <Play className="w-7 h-7 text-[#F0C149] ml-1" fill="currentColor" />
+                <Play
+                  className="w-7 h-7 text-[#F0C149] ml-1"
+                  fill="currentColor"
+                />
               </div>
               <p className="text-sm tracking-[0.25em] uppercase text-[#D4CBAF] font-semibold">
                 Video coming soon
@@ -480,7 +559,8 @@ export default function LandingPage() {
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">What you will feel</p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F5ECD0] font-bold">
-              An <span className="text-[#F0C149]">experience</span>, not a lecture.
+              An <span className="text-[#F0C149]">experience</span>, not a
+              lecture.
             </h2>
             <div className="gold-divider mt-6" />
           </div>
@@ -557,13 +637,27 @@ export default function LandingPage() {
               </h2>
               <ul className="space-y-4">
                 {[
-                  { icon: <Volume2 className="w-5 h-5" />, t: "Conducted in a quiet, focused auditorium setting" },
-                  { icon: <Shield className="w-5 h-5" />, t: "Designed for deep inner immersion without disturbance" },
-                  { icon: <Users className="w-5 h-5" />, t: "Structured seating to maintain attention and energy flow" },
-                  { icon: <Sparkles className="w-5 h-5" />, t: "Every participant experiences the session with clarity and presence" },
+                  {
+                    icon: <Volume2 className="w-5 h-5" />,
+                    t: "Conducted in a quiet, focused auditorium setting",
+                  },
+                  {
+                    icon: <Shield className="w-5 h-5" />,
+                    t: "Designed for deep inner immersion without disturbance",
+                  },
+                  {
+                    icon: <Users className="w-5 h-5" />,
+                    t: "Structured seating to maintain attention and energy flow",
+                  },
+                  {
+                    icon: <Sparkles className="w-5 h-5" />,
+                    t: "Every participant experiences the session with clarity and presence",
+                  },
                 ].map((x, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-[#F0C149] mt-0.5 shrink-0">{x.icon}</span>
+                    <span className="text-[#F0C149] mt-0.5 shrink-0">
+                      {x.icon}
+                    </span>
                     <span className="text-[#D4CBAF] leading-relaxed text-[15px]">
                       {x.t}
                     </span>
@@ -588,7 +682,9 @@ export default function LandingPage() {
                   src={AUDITORIUM_1}
                   alt="Auditorium"
                   className="w-full h-full object-cover"
-                  style={{ filter: "brightness(0.8) contrast(1.1) saturate(0.85)" }}
+                  style={{
+                    filter: "brightness(0.8) contrast(1.1) saturate(0.85)",
+                  }}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
@@ -638,7 +734,10 @@ export default function LandingPage() {
             </ul>
           </div>
 
-          <div data-testid="what-not-section" className="md:border-l md:pl-14 border-[#d4a73d]/20">
+          <div
+            data-testid="what-not-section"
+            className="md:border-l md:pl-14 border-[#d4a73d]/20"
+          >
             <p className="eyebrow mb-4" style={{ color: "#e06b75" }}>
               What this is not
             </p>
@@ -649,7 +748,7 @@ export default function LandingPage() {
             </h2>
             <ul className="space-y-3.5">
               {[
-                "Not a religious lecture",
+                "Not only religious lecture",
                 "Not a bhajan or entertainment session",
                 "Not a discourse-only event",
                 "Not passive listening — you will practice",
@@ -697,19 +796,24 @@ export default function LandingPage() {
               <span className="text-[#F0C149]">thousands inward.</span>
             </h2>
             <p className="text-[#D4CBAF] text-base sm:text-lg leading-relaxed mb-6 font-medium">
-              A contemporary voice in Indian spirituality, known for making sadhana
-              direct, practical and accessible. Swami Yo has guided thousands online
-              through experiential teachings — away from rituals, into inner reality.
+              A contemporary voice in Indian spirituality, known for making
+              sadhana direct, practical and accessible. Swami Yo has guided
+              thousands online through experiential teachings — away from
+              rituals, into inner reality.
             </p>
             <div className="grid grid-cols-2 gap-6 border-t border-[#d4a73d]/20 pt-6 mb-8">
               <div>
-                <div className="font-serif text-4xl text-[#F0C149] font-black">1M+</div>
+                <div className="font-serif text-4xl text-[#F0C149] font-black">
+                  1M+
+                </div>
                 <div className="text-[11px] tracking-[0.22em] uppercase text-[#B5AE97] mt-1.5 font-semibold">
                   YouTube Subscribers
                 </div>
               </div>
               <div>
-                <div className="font-serif text-4xl text-[#F0C149] font-black">100M+</div>
+                <div className="font-serif text-4xl text-[#F0C149] font-black">
+                  100M+
+                </div>
                 <div className="text-[11px] tracking-[0.22em] uppercase text-[#B5AE97] mt-1.5 font-semibold">
                   Views · No rituals, only reality
                 </div>
@@ -767,14 +871,20 @@ export default function LandingPage() {
               >
                 <div className="flex items-center gap-1 mb-3">
                   {[0, 1, 2, 3, 4].map((s) => (
-                    <Star key={s} className="w-4 h-4 text-[#F0C149]" fill="currentColor" />
+                    <Star
+                      key={s}
+                      className="w-4 h-4 text-[#F0C149]"
+                      fill="currentColor"
+                    />
                   ))}
                 </div>
                 <blockquote className="text-[#D4CBAF] leading-relaxed text-[15px] font-medium">
                   "{t.q}"
                 </blockquote>
                 <figcaption className="mt-5 pt-4 border-t border-[#d4a73d]/10">
-                  <div className="text-[#F5ECD0] text-sm font-semibold">{t.n}</div>
+                  <div className="text-[#F5ECD0] text-sm font-semibold">
+                    {t.n}
+                  </div>
                   <div className="text-[11px] tracking-[0.2em] uppercase text-[#B5AE97] mt-1">
                     {t.loc}
                   </div>
@@ -873,9 +983,12 @@ export default function LandingPage() {
                 <p className="eyebrow">Premium Experience</p>
               </div>
               <div className="flex items-baseline gap-3 mb-1">
-                <span className="font-serif text-6xl md:text-7xl font-black text-[#F0C149]" style={{
-                  textShadow: "0 0 40px rgba(240,193,73,0.25)"
-                }}>
+                <span
+                  className="font-serif text-6xl md:text-7xl font-black text-[#F0C149]"
+                  style={{
+                    textShadow: "0 0 40px rgba(240,193,73,0.25)",
+                  }}
+                >
                   ₹500
                 </span>
                 <span className="text-[11px] tracking-[0.2em] uppercase text-[#B5AE97] font-semibold">
@@ -883,20 +996,36 @@ export default function LandingPage() {
                 </span>
               </div>
               <p className="text-[#D4CBAF] text-sm md:text-base mb-7 leading-relaxed font-medium">
-                Closer seating · better visibility · a deeper, more immersive experience.
+                Closer seating · better visibility · a deeper, more immersive
+                experience.
               </p>
               <ul className="space-y-3.5 mb-8 text-sm md:text-base">
                 <li className="flex items-start gap-2.5 text-[#F5ECD0]">
                   <CheckCircle2 className="w-5 h-5 text-[#F0C149] mt-0.5 shrink-0" />
-                  <span><strong className="text-[#F5ECD0] font-semibold">Closer seating</strong> for better connection & focus</span>
+                  <span>
+                    <strong className="text-[#F5ECD0] font-semibold">
+                      Closer seating
+                    </strong>{" "}
+                    for better connection & focus
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#F5ECD0]">
                   <CheckCircle2 className="w-5 h-5 text-[#F0C149] mt-0.5 shrink-0" />
-                  <span><strong className="text-[#F5ECD0] font-semibold">Better visibility</strong> of Swami Ji during guidance</span>
+                  <span>
+                    <strong className="text-[#F5ECD0] font-semibold">
+                      Better visibility
+                    </strong>{" "}
+                    of Swami Ji during guidance
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#F5ECD0]">
                   <CheckCircle2 className="w-5 h-5 text-[#F0C149] mt-0.5 shrink-0" />
-                  <span><strong className="text-[#F5ECD0] font-semibold">Limited seats</strong> for a more immersive experience</span>
+                  <span>
+                    <strong className="text-[#F5ECD0] font-semibold">
+                      Limited seats
+                    </strong>{" "}
+                    for a more immersive experience
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#F5ECD0]">
                   <CheckCircle2 className="w-5 h-5 text-[#F0C149] mt-0.5 shrink-0" />
@@ -927,13 +1056,19 @@ export default function LandingPage() {
       {/* =========================================================
           SECTION 11 — URGENCY
       ========================================================= */}
-      <section data-testid="urgency-section" className="py-14 md:py-16 px-6 bg-[#030305] border-t border-[#d4a73d]/15">
+      <section
+        data-testid="urgency-section"
+        className="py-14 md:py-16 px-6 bg-[#030305] border-t border-[#d4a73d]/15"
+      >
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e06b75]/50 text-[#e6a8ae] text-[11px] tracking-[0.25em] uppercase mb-5 font-semibold">
             <Flame className="w-3.5 h-3.5" /> Filling fast
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F5ECD0] mb-6 font-bold leading-tight">
-            Only <span className="text-[#F0C149]" data-testid="seats-remaining">{stats.seats_remaining}</span>{" "}
+            Only{" "}
+            <span className="text-[#F0C149]" data-testid="seats-remaining">
+              {stats.seats_remaining}
+            </span>{" "}
             seats left of {stats.total_seats}
           </h2>
 
@@ -946,7 +1081,9 @@ export default function LandingPage() {
             </div>
             <div className="flex justify-between mt-2 text-[10px] tracking-[0.2em] uppercase text-[#B5AE97] font-semibold">
               <span>{pct}% booked</span>
-              <span>{stats.seats_booked} / {stats.total_seats}</span>
+              <span>
+                {stats.seats_booked} / {stats.total_seats}
+              </span>
             </div>
           </div>
 
@@ -964,7 +1101,10 @@ export default function LandingPage() {
       {/* =========================================================
           SECTION 12 — FAQ
       ========================================================= */}
-      <section data-testid="faq-section" className="py-16 md:py-24 px-6 bg-[#08090d] section-connect">
+      <section
+        data-testid="faq-section"
+        className="py-16 md:py-24 px-6 bg-[#08090d] section-connect"
+      >
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <p className="eyebrow mb-4">Questions</p>
@@ -1010,9 +1150,12 @@ export default function LandingPage() {
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-7xl text-[#F5ECD0] mb-8 leading-[0.95] font-black">
             This is not just an event.
             <br />
-            <span className="italic text-[#F0C149]" style={{
-              textShadow: "0 0 40px rgba(240,193,73,0.3)"
-            }}>
+            <span
+              className="italic text-[#F0C149]"
+              style={{
+                textShadow: "0 0 40px rgba(240,193,73,0.3)",
+              }}
+            >
               It's an experience.
             </span>
           </h2>
@@ -1065,14 +1208,16 @@ export default function LandingPage() {
           <div>
             <img src={SWAMI_LOGO} alt="Swami Yo" className="h-11 w-auto mb-4" />
             <p className="text-[#7a7263] leading-relaxed text-xs">
-              Anand Chakra — Inner Awakening Through Shiv-Shakti & Bhairav Sadhana. A guided
-              experiential session with Swami Yo.
+              Anand Chakra — Inner Awakening Through Shiv-Shakti & Bhairav
+              Sadhana. A guided experiential session with Swami Yo.
             </p>
           </div>
 
           <div>
             <p className="eyebrow mb-4">Organised by</p>
-            <p className="text-[#F5ECD0] mb-1 font-semibold">Elite Enterprise</p>
+            <p className="text-[#F5ECD0] mb-1 font-semibold">
+              Elite Enterprise
+            </p>
             <p className="text-[#B5AE97] text-xs leading-relaxed mb-1">
               Saptrangi Co-op HSG, near Dutt Nagar,
               <br />
@@ -1154,7 +1299,9 @@ export default function LandingPage() {
           data-testid="sticky-mobile-general-cta"
           className="flex-1 py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold bg-[#0f1118] text-[#F0C149] border-t border-r border-[#F0C149]/50"
         >
-          <span className="block text-[9px] opacity-80 tracking-[0.2em]">General</span>
+          <span className="block text-[9px] opacity-80 tracking-[0.2em]">
+            General
+          </span>
           <span className="block text-sm font-black">₹200 Entry</span>
         </button>
         <button
@@ -1167,11 +1314,12 @@ export default function LandingPage() {
             color: "#0a0a0a",
           }}
         >
-          <span className="block text-[9px] opacity-80 tracking-[0.2em]">Premium · Recommended</span>
+          <span className="block text-[9px] opacity-80 tracking-[0.2em]">
+            Premium · Recommended
+          </span>
           <span className="block text-sm font-black">₹500 Book Now</span>
         </button>
       </div>
-
     </div>
   );
 }
