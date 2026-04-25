@@ -24,21 +24,13 @@ const WA_NUMBER = "919664003370";
 const WA_LINK =
   `https://wa.me/${WA_NUMBER}?text=` +
   encodeURIComponent(
-    "Namaste, I just booked my seat for Anand Chakra (31 May 2026, Vadodara)."
+    "Namaste, I just booked my seat for Anand Chakra (31 May 2026, Vadodara).",
   );
 
 export default function ThankyouPage() {
   const [paymentUrls, setPaymentUrls] = useState({
-    premium:
-      "https://wa.me/919664003370?text=" +
-      encodeURIComponent(
-        "Namaste! I want to book the Premium ₹500 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details."
-      ),
-    general:
-      "https://wa.me/919664003370?text=" +
-      encodeURIComponent(
-        "Namaste! I want to book the General ₹200 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details."
-      ),
+    premium: "https://payments.cashfree.com/forms/AnandChakra5",
+    general: "https://payments.cashfree.com/forms/AnandChakra2",
   });
 
   useEffect(() => {
@@ -103,7 +95,10 @@ export default function ThankyouPage() {
             data-testid="thankyou-success-icon"
             className="w-24 h-24 rounded-full border-2 border-[#F0C149] bg-[#F0C149]/10 backdrop-blur flex items-center justify-center mx-auto mb-8 pulse-gold"
           >
-            <CheckCircle2 className="w-12 h-12 text-[#F0C149]" strokeWidth={1.8} />
+            <CheckCircle2
+              className="w-12 h-12 text-[#F0C149]"
+              strokeWidth={1.8}
+            />
           </div>
 
           <p className="eyebrow mb-4">Booking Confirmed</p>
@@ -114,7 +109,9 @@ export default function ThankyouPage() {
           >
             Thank you.
             <br />
-            <span className="italic text-[#F0C149]">Your seat is reserved.</span>
+            <span className="italic text-[#F0C149]">
+              Your seat is reserved.
+            </span>
           </h1>
           <p className="text-[#D4CBAF] text-lg sm:text-xl font-medium max-w-xl mx-auto leading-relaxed mb-2">
             We've received your booking for{" "}
@@ -160,7 +157,9 @@ export default function ThankyouPage() {
                   <div className="font-serif text-lg text-[#F5ECD0] font-bold mb-1">
                     {s.t}
                   </div>
-                  <p className="text-[#B5AE97] text-sm leading-relaxed">{s.d}</p>
+                  <p className="text-[#B5AE97] text-sm leading-relaxed">
+                    {s.d}
+                  </p>
                 </div>
               </li>
             ))}
@@ -193,7 +192,8 @@ export default function ThankyouPage() {
                 Closer seating · better visibility · deeper immersion.
               </p>
               <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
-                Book Premium <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
+                Book Premium{" "}
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
               </span>
             </button>
 
@@ -213,7 +213,8 @@ export default function ThankyouPage() {
                 Standard auditorium access · full 2-hour guided sadhana.
               </p>
               <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
-                Book General <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
+                Book General{" "}
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
               </span>
             </button>
           </div>
@@ -249,7 +250,8 @@ export default function ThankyouPage() {
               href="mailto:swamiyomantra@gmail.com"
               className="inline-flex items-center gap-2 text-[#F5ECD0] hover:text-[#F0C149] transition text-sm"
             >
-              <Mail className="w-4 h-4 text-[#F0C149]" /> swamiyomantra@gmail.com
+              <Mail className="w-4 h-4 text-[#F0C149]" />{" "}
+              swamiyomantra@gmail.com
             </a>
           </div>
         </section>
@@ -259,13 +261,22 @@ export default function ThankyouPage() {
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] tracking-[0.22em] uppercase text-[#57504a] font-semibold">
           <p>© 2026 Elite Enterprise · Elitek Digitals</p>
           <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
-            <Link to="/privacy-policy" className="hover:text-[#F0C149] transition">
+            <Link
+              to="/privacy-policy"
+              className="hover:text-[#F0C149] transition"
+            >
               Privacy Policy
             </Link>
-            <Link to="/terms-conditions" className="hover:text-[#F0C149] transition">
+            <Link
+              to="/terms-conditions"
+              className="hover:text-[#F0C149] transition"
+            >
               Terms & Conditions
             </Link>
-            <Link to="/refund-policy" className="hover:text-[#F0C149] transition">
+            <Link
+              to="/refund-policy"
+              className="hover:text-[#F0C149] transition"
+            >
               Refund Policy
             </Link>
           </nav>

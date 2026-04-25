@@ -80,16 +80,8 @@ export default function LandingPage() {
   const [countdown, setCountdown] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [whatsapp, setWhatsapp] = useState("919664003370");
   const [paymentUrls, setPaymentUrls] = useState({
-    premium:
-      "https://wa.me/919664003370?text=" +
-      encodeURIComponent(
-        "Namaste! I want to book the Premium ₹500 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details.",
-      ),
-    general:
-      "https://wa.me/919664003370?text=" +
-      encodeURIComponent(
-        "Namaste! I want to book the General ₹200 seat for Anand Chakra (31 May 2026, Vadodara). Please share payment details.",
-      ),
+    premium: "https://payments.cashfree.com/forms/AnandChakra5",
+    general: "https://payments.cashfree.com/forms/AnandChakra2",
   });
 
   const ticketsRef = useRef(null);
