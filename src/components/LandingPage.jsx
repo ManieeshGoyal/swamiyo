@@ -1056,7 +1056,7 @@ export default function LandingPage() {
       {/* =========================================================
           SECTION 11 — URGENCY
       ========================================================= */}
-      {/* <section
+      <section
         data-testid="urgency-section"
         className="py-14 md:py-16 px-6 bg-[#030305] border-t border-[#d4a73d]/15"
       >
@@ -1096,7 +1096,7 @@ export default function LandingPage() {
             Reserve Before It Closes →
           </button>
         </div>
-      </section> */}
+      </section>
 
       {/* =========================================================
           SECTION 12 — FAQ
