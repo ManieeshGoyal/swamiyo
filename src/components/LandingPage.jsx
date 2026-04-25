@@ -94,27 +94,27 @@ export default function LandingPage() {
 
   const ticketsRef = useRef(null);
 
-  useEffect(() => {
-    const loadConfig = async () => {
-      try {
-        const [s, c] = await Promise.all([
-          axios.get(`${API}/bookings/stats`),
-          axios.get(`${API}/config`),
-        ]);
-        if (s?.data) setStats(s.data);
-        if (c?.data) {
-          if (c.data.whatsapp_number) setWhatsapp(c.data.whatsapp_number);
-          setPaymentUrls((p) => ({
-            premium: c.data.payment_url_premium || p.premium,
-            general: c.data.payment_url_general || p.general,
-          }));
-        }
-      } catch (_) {
-        /* fallback to defaults */
-      }
-    };
-    loadConfig();
-  }, []);
+  // useEffect(() => {
+  //   const loadConfig = async () => {
+  //     try {
+  //       const [s, c] = await Promise.all([
+  //         axios.get(`${API}/bookings/stats`),
+  //         axios.get(`${API}/config`),
+  //       ]);
+  //       if (s?.data) setStats(s.data);
+  //       if (c?.data) {
+  //         if (c.data.whatsapp_number) setWhatsapp(c.data.whatsapp_number);
+  //         setPaymentUrls((p) => ({
+  //           premium: c.data.payment_url_premium || p.premium,
+  //           general: c.data.payment_url_general || p.general,
+  //         }));
+  //       }
+  //     } catch (_) {
+  //       /* fallback to defaults */
+  //     }
+  //   };
+  //   loadConfig();
+  // }, []);
 
   useEffect(() => {
     const target = new Date("2026-05-31T19:00:00+05:30").getTime();
