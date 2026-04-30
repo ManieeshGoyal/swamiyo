@@ -29,8 +29,8 @@ const WA_LINK =
 
 export default function ThankyouPage() {
   const [paymentUrls, setPaymentUrls] = useState({
-    premium: "https://payments.cashfree.com/forms/AnandChakra5",
-    general: "https://payments.cashfree.com/forms/AnandChakra2",
+    Diamond: "https://payments.cashfree.com/forms/AnandChakra5",
+    gold: "https://payments.cashfree.com/forms/AnandChakra2",
   });
 
   useEffect(() => {
@@ -47,8 +47,8 @@ export default function ThankyouPage() {
         const { data } = await axios.get(`${API}/config`);
         if (data) {
           setPaymentUrls((p) => ({
-            premium: data.payment_url_premium || p.premium,
-            general: data.payment_url_general || p.general,
+            Diamond: data.payment_url_Diamond || p.Diamond,
+            gold: data.payment_url_gold || p.gold,
           }));
         }
       } catch (_) {}
@@ -60,7 +60,7 @@ export default function ThankyouPage() {
     if (typeof window !== "undefined" && window.fbq) {
       window.fbq("track", "InitiateCheckout", {
         content_name: `Anand Chakra ${tier}`,
-        value: tier === "premium" ? 500 : 200,
+        value: tier === "Diamond" ? 500 : 200,
         currency: "INR",
       });
     }
@@ -93,7 +93,7 @@ export default function ThankyouPage() {
         <div className="text-center">
           <div
             data-testid="thankyou-success-icon"
-            className="w-24 h-24 rounded-full border-2 border-[#F0C149] bg-[#F0C149]/10 backdrop-blur flex items-center justify-center mx-auto mb-8 pulse-gold"
+            className="w-24 h-24 rounded-full border-2 border-[#F0C149] bg-[#F0C149]/10 backdrop-blur flex items-center justify-center mx-auto mb-8 pulse-Diamond"
           >
             <CheckCircle2
               className="w-12 h-12 text-[#F0C149]"
@@ -124,7 +124,7 @@ export default function ThankyouPage() {
           </p>
         </div>
 
-        <div className="gold-divider my-12" />
+        <div className="Diamond-divider my-12" />
 
         <section
           data-testid="thankyou-next-steps"
@@ -177,14 +177,14 @@ export default function ThankyouPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <button
               type="button"
-              onClick={() => goBook("premium")}
-              data-testid="thankyou-book-premium-btn"
-              className="relative overflow-hidden group p-6 sm:p-7 text-left border-2 border-[#F0C149] bg-gradient-to-b from-[#1f1708] via-[#0f0c06] to-[#0a0c11] premium-shadow lift-hover"
+              onClick={() => goBook("Diamond")}
+              data-testid="thankyou-book-Diamond-btn"
+              className="relative overflow-hidden group p-6 sm:p-7 text-left border-2 border-[#F0C149] bg-gradient-to-b from-[#1f1708] via-[#0f0c06] to-[#0a0c11] Diamond-shadow lift-hover"
             >
               <div className="absolute top-3 right-3 bg-[#F0C149] text-black text-[9px] tracking-[0.2em] uppercase font-bold px-2 py-0.5">
                 Recommended
               </div>
-              <p className="eyebrow mb-3">Premium</p>
+              <p className="eyebrow mb-3">Diamond</p>
               <div className="font-serif text-4xl sm:text-5xl font-black text-[#F0C149] mb-2">
                 ₹500
               </div>
@@ -192,19 +192,19 @@ export default function ThankyouPage() {
                 Closer seating · better visibility · deeper immersion.
               </p>
               <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
-                Book Premium{" "}
+                Book Diamond{" "}
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
               </span>
             </button>
 
             <button
               type="button"
-              onClick={() => goBook("general")}
-              data-testid="thankyou-book-general-btn"
+              onClick={() => goBook("gold")}
+              data-testid="thankyou-book-gold-btn"
               className="relative overflow-hidden group p-6 sm:p-7 text-left border border-white/15 bg-[#12151D] lift-hover hover:border-[#d4a73d]/35"
             >
               <p className="eyebrow mb-3" style={{ color: "#B5AE97" }}>
-                General
+                gold
               </p>
               <div className="font-serif text-4xl sm:text-5xl font-black text-[#F5ECD0] mb-2">
                 ₹200
@@ -213,7 +213,7 @@ export default function ThankyouPage() {
                 Standard auditorium access · full 2-hour guided sadhana.
               </p>
               <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
-                Book General{" "}
+                Book gold{" "}
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
               </span>
             </button>

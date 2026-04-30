@@ -80,8 +80,8 @@ export default function LandingPage() {
   const [countdown, setCountdown] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [whatsapp, setWhatsapp] = useState("919664003370");
   const [paymentUrls, setPaymentUrls] = useState({
-    premium: "https://payments.cashfree.com/forms/AnandChakra5",
-    general: "https://payments.cashfree.com/forms/AnandChakra2",
+    diamond: "https://payments.cashfree.com/forms/AnandChakra5",
+    gold: "https://payments.cashfree.com/forms/AnandChakra2",
   });
 
   const ticketsRef = useRef(null);
@@ -97,8 +97,8 @@ export default function LandingPage() {
   //       if (c?.data) {
   //         if (c.data.whatsapp_number) setWhatsapp(c.data.whatsapp_number);
   //         setPaymentUrls((p) => ({
-  //           premium: c.data.payment_url_premium || p.premium,
-  //           general: c.data.payment_url_general || p.general,
+  //           diamond: c.data.payment_url_ || p.,
+  //           gold: c.data.payment_url_gold || p.gold,
   //         }));
   //       }
   //     } catch (_) {
@@ -125,12 +125,12 @@ export default function LandingPage() {
     return () => clearInterval(id);
   }, []);
 
-  const openBooking = (tier = "premium") => {
+  const openBooking = (tier = "") => {
     const url = paymentUrls[tier];
     if (typeof window !== "undefined" && window.fbq) {
       window.fbq("track", "InitiateCheckout", {
         content_name: `Anand Chakra ${tier}`,
-        value: tier === "premium" ? 500 : 200,
+        value: tier === "" ? 500 : 200,
         currency: "INR",
       });
     }
@@ -353,13 +353,13 @@ export default function LandingPage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="button"
-                  onClick={() => openBooking("premium")}
+                  onClick={() => openBooking("diamond")}
                   data-testid="hero-book-btn"
                   className="btn-gold pulse-gold flex-1 sm:flex-none"
                 >
                   <span className="flex flex-col items-start leading-tight text-left">
                     <span className="text-[10px] tracking-[0.2em] opacity-80">
-                      Premium
+                      diamond
                     </span>
                     <span>Book · ₹500</span>
                   </span>
@@ -367,13 +367,13 @@ export default function LandingPage() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => openBooking("general")}
-                  data-testid="hero-book-general-btn"
+                  onClick={() => openBooking("gold")}
+                  data-testid="hero-book-gold-btn"
                   className="btn-ghost-gold flex-1 sm:flex-none"
                 >
                   <span className="flex flex-col items-start leading-tight text-left">
                     <span className="text-[10px] tracking-[0.2em] opacity-80">
-                      General
+                      gold
                     </span>
                     <span>Book · ₹200</span>
                   </span>
@@ -516,7 +516,7 @@ export default function LandingPage() {
           </h2>
           <div
             data-testid="video-placeholder"
-            className="relative aspect-video bg-gradient-to-br from-[#0f1118] to-[#030305] border border-[#d4a73d]/30 flex items-center justify-center overflow-hidden group cursor-pointer premium-shadow"
+            className="relative aspect-video bg-gradient-to-br from-[#0f1118] to-[#030305] border border-[#d4a73d]/30 flex items-center justify-center overflow-hidden group cursor-pointer diamond-shadow"
           >
             <img
               src={SWAMI_ABOUT}
@@ -599,7 +599,7 @@ export default function LandingPage() {
           <div className="mt-12 text-center">
             <button
               type="button"
-              onClick={() => openBooking("premium")}
+              onClick={() => openBooking("diamond")}
               data-testid="experience-book-btn"
               className="btn-gold"
             >
@@ -659,7 +659,7 @@ export default function LandingPage() {
 
               <button
                 type="button"
-                onClick={() => openBooking("premium")}
+                onClick={() => openBooking("diamond")}
                 data-testid="immersive-book-btn"
                 className="btn-ghost-gold mt-9"
               >
@@ -669,7 +669,7 @@ export default function LandingPage() {
 
             {/* Auditorium images — 2 only, connected */}
             <div className="grid grid-cols-5 grid-rows-6 gap-3 aspect-[4/5] md:aspect-auto md:h-[560px]">
-              <div className="col-span-5 row-span-4 relative overflow-hidden border border-[#d4a73d]/20 premium-shadow">
+              <div className="col-span-5 row-span-4 relative overflow-hidden border border-[#d4a73d]/20 diamond-shadow">
                 <img
                   src={AUDITORIUM_1}
                   alt="Auditorium"
@@ -764,7 +764,7 @@ export default function LandingPage() {
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-14 items-center">
           <div className="md:col-span-2">
-            <div className="relative aspect-[4/5] overflow-hidden border border-[#d4a73d]/30 premium-shadow">
+            <div className="relative aspect-[4/5] overflow-hidden border border-[#d4a73d]/30 diamond-shadow">
               <img
                 src={SWAMI_ABOUT}
                 alt="Swami Yo"
@@ -813,7 +813,7 @@ export default function LandingPage() {
             </div>
             <button
               type="button"
-              onClick={() => openBooking("premium")}
+              onClick={() => openBooking("diamond")}
               data-testid="about-book-btn"
               className="btn-gold"
             >
@@ -885,7 +885,7 @@ export default function LandingPage() {
             ))}
           </div>
 
-          <div className="mt-10 relative aspect-[16/5] overflow-hidden border border-[#d4a73d]/15 premium-shadow">
+          <div className="mt-10 relative aspect-[16/5] overflow-hidden border border-[#d4a73d]/15 diamond-shadow">
             <img
               src={SOCIAL_PROOF_BG}
               alt="Past gathering"
@@ -903,7 +903,7 @@ export default function LandingPage() {
       </section>
 
       {/* =========================================================
-          SECTION 10 — TICKETS (Premium highlighted)
+          SECTION 10 — TICKETS (diamond highlighted)
       ========================================================= */}
       <section
         ref={ticketsRef}
@@ -923,13 +923,13 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-6 max-w-5xl mx-auto items-stretch">
-            {/* General — smaller, on the left */}
+            {/* gold — smaller, on the left */}
             <div
-              data-testid="general-ticket-card"
+              data-testid="gold-ticket-card"
               className="md:col-span-2 relative overflow-hidden p-7 md:p-8 border border-white/10 bg-[#0a0c11] lift-hover hover:border-[#d4a73d]/25"
             >
               <p className="eyebrow mb-4" style={{ color: "#B5AE97" }}>
-                General Entry
+                gold Entry
               </p>
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="font-serif text-5xl md:text-6xl font-black text-[#F5ECD0]">
@@ -955,24 +955,24 @@ export default function LandingPage() {
               </ul>
               <button
                 type="button"
-                onClick={() => openBooking("general")}
-                data-testid="general-book-btn"
+                onClick={() => openBooking("gold")}
+                data-testid="gold-book-btn"
                 className="btn-ghost-gold w-full justify-center"
               >
-                Reserve General →
+                Reserve gold →
               </button>
             </div>
 
-            {/* Premium — bigger, highlighted, ribbon, scale up */}
+            {/* diamond — bigger, highlighted, ribbon, scale up */}
             <div
-              data-testid="premium-ticket-card"
-              className="md:col-span-3 relative overflow-hidden p-8 md:p-10 border-2 border-[#F0C149] bg-gradient-to-b from-[#1f1708] via-[#0f0c06] to-[#0a0c11] premium-shadow md:-my-4"
+              data-testid="diamond-ticket-card"
+              className="md:col-span-3 relative overflow-hidden p-8 md:p-10 border-2 border-[#F0C149] bg-gradient-to-b from-[#1f1708] via-[#0f0c06] to-[#0a0c11] diamond-shadow md:-my-4"
             >
               <div className="ribbon">Recommended</div>
 
               <div className="flex items-center gap-2 mb-4">
                 <Flame className="w-4 h-4 text-[#F0C149]" />
-                <p className="eyebrow">Premium Experience</p>
+                <p className="eyebrow">diamond Experience</p>
               </div>
               <div className="flex items-baseline gap-3 mb-1">
                 <span
@@ -1026,11 +1026,11 @@ export default function LandingPage() {
               </ul>
               <button
                 type="button"
-                onClick={() => openBooking("premium")}
-                data-testid="premium-book-btn"
+                onClick={() => openBooking("diamond")}
+                data-testid="diamond-book-btn"
                 className="btn-gold w-full pulse-gold"
               >
-                Reserve Premium →
+                Reserve diamond →
               </button>
               <p className="text-[11px] text-center text-[#B5AE97] mt-4 tracking-wide">
                 Most chosen by past attendees
@@ -1081,7 +1081,7 @@ export default function LandingPage() {
 
           <button
             type="button"
-            onClick={() => openBooking("premium")}
+            onClick={() => openBooking("diamond")}
             data-testid="urgency-book-btn"
             className="btn-gold"
           >
@@ -1153,7 +1153,7 @@ export default function LandingPage() {
           </h2>
           <button
             type="button"
-            onClick={() => openBooking("premium")}
+            onClick={() => openBooking("diamond")}
             data-testid="final-cta-btn"
             className="btn-gold pulse-gold"
           >
@@ -1287,18 +1287,18 @@ export default function LandingPage() {
       >
         <button
           type="button"
-          onClick={() => openBooking("general")}
-          data-testid="sticky-mobile-general-cta"
+          onClick={() => openBooking("gold")}
+          data-testid="sticky-mobile-gold-cta"
           className="flex-1 py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold bg-[#0f1118] text-[#F0C149] border-t border-r border-[#F0C149]/50"
         >
           <span className="block text-[9px] opacity-80 tracking-[0.2em]">
-            General
+            gold
           </span>
           <span className="block text-sm font-black">₹200 Entry</span>
         </button>
         <button
           type="button"
-          onClick={() => openBooking("premium")}
+          onClick={() => openBooking("diamond")}
           data-testid="sticky-mobile-cta"
           className="flex-[1.3] py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold border-t border-[#F0C149]"
           style={{
@@ -1307,7 +1307,7 @@ export default function LandingPage() {
           }}
         >
           <span className="block text-[9px] opacity-80 tracking-[0.2em]">
-            Premium · Recommended
+            diamond · Recommended
           </span>
           <span className="block text-sm font-black">₹500 Book Now</span>
         </button>
