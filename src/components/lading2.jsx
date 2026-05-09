@@ -50,7 +50,7 @@ const AUDITORIUM_2 =
 
 // Hero composed visual asset (Shiv-Shakti + Bhairav + Swami Yo merged with sacred mountain temple)
 const HERO_MERGE = "./images/Untitled-3.png";
-const HERO_MERGE_MOBILE = "./images/newphone.png";
+const HERO_MERGE_MOBILE = "./images/PhoneSize.png";
 
 const SOCIAL_PROOF_BG =
   "https://images.pexels.com/photos/7163160/pexels-photo-7163160.jpeg";
@@ -202,7 +202,7 @@ export default function LandingPage2() {
             data-testid="hero-book-btn"
             className="btn-gold  pulse-gold flex-1 sm:flex-none"
           >
-            <span className="flex flex-col items-start leading-tight text-left">
+            <span className="flex flex-col  items-start leading-tight text-left">
               <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
                 Platinum · ₹350
               </span>
