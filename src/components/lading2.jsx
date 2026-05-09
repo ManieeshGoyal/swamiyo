@@ -206,7 +206,7 @@ export default function LandingPage2() {
               <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
                 Platinum · ₹350
               </span>
-              <span>Book Platinum Seat</span>
+              <span>Reserve Platinum Seat</span>
             </span>
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -309,7 +309,7 @@ export default function LandingPage2() {
             data-testid="compare-tiers-btn"
             className="text-[11px] tracking-[0.22em] uppercase text-[#F0C149] hover:text-[#f5d97c] underline underline-offset-4 decoration-[#F0C149]/40 hover:decoration-[#F0C149] transition font-semibold inline-flex items-center gap-1.5"
           >
-            Diamond vs Gold <ArrowRight className="w-3 h-3" />
+            Diamond vs Platinum vs Gold <ArrowRight className="w-3 h-3" />
           </button>
           <p className="text-[11px] tracking-[0.2em] uppercase text-[#D4CBAF] font-semibold">
             <Users className="w-3.5 h-3.5 inline mr-1.5 text-[#F0C149]" />
