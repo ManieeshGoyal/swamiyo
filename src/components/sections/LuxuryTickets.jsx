@@ -193,17 +193,15 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
             </p>
 
             <ul className="space-y-3 mb-8 text-sm">
-              {["⁠Standard Seating Access", "⁠Standard Seating Access"].map(
-                (t, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2.5 text-[#D4CBAF]"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-[#B5AE97] mt-0.5 shrink-0" />
-                    <span>{t}</span>
-                  </li>
-                ),
-              )}
+              {[
+                "Comfortable seating arrangement",
+                " Access to all sessions & activities",
+              ].map((t, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-[#D4CBAF]">
+                  <CheckCircle2 className="w-4 h-4 text-[#B5AE97] mt-0.5 shrink-0" />
+                  <span>{t}</span>
+                </li>
+              ))}
             </ul>
 
             <button
