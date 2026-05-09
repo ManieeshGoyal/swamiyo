@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage2 />} />
-
+          <Route path="/landing" element={<LandingPage />} />
           {/* <Route path="/newhome" element={<newLandingPage />} /> */}
           <Route path="/thankyou" element={<ThankyouPage />} />
           <Route path="/thank-you" element={<ThankyouPage />} />
@@ -28,7 +28,8 @@ function App() {
           <Route
             path="/refund-policy"
             element={<PolicyPage slug="refund-policy" />}
-          />.   
+          />
+          .
         </Routes>
       </BrowserRouter>
     </div>

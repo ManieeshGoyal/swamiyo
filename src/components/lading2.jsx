@@ -295,6 +295,47 @@ export default function LandingPage2() {
         </a>
       </div> */}
 
+      {/* Compare + seats remaining */}
+      <section className="py-6 md:py-12 px-6 flex flex-col justify-center items-center">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <button
+            type="button"
+            onClick={() =>
+              ticketsRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+            data-testid="compare-tiers-btn"
+            className="text-[11px] tracking-[0.22em] uppercase text-[#F0C149] hover:text-[#f5d97c] underline underline-offset-4 decoration-[#F0C149]/40 hover:decoration-[#F0C149] transition font-semibold inline-flex items-center gap-1.5"
+          >
+            Diamond vs Gold <ArrowRight className="w-3 h-3" />
+          </button>
+          <p className="text-[11px] tracking-[0.2em] uppercase text-[#D4CBAF] font-semibold">
+            <Users className="w-3.5 h-3.5 inline mr-1.5 text-[#F0C149]" />
+            {stats.seats_remaining} of 500 seats left
+          </p>
+        </div>
+
+        {/* Countdown — compact, tucked below CTAs on desktop */}
+        <div className="mt-7 flex items-center gap-4 sm:gap-7">
+          {[
+            { l: "Days", v: countdown.d },
+            { l: "Hours", v: countdown.h },
+            { l: "Min", v: countdown.m },
+            { l: "Sec", v: countdown.s },
+          ].map((c) => (
+            <div key={c.l} className="text-left">
+              <div className="font-serif text-2xl sm:text-3xl font-black text-[#F5ECD0] tabular-nums leading-none">
+                {String(c.v).padStart(2, "0")}
+              </div>
+              <div className="text-[9px] tracking-[0.25em] uppercase text-[#B5AE97] mt-1 font-semibold">
+                {c.l}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
       {/* =========================================================
           SECTION 2 — TRUST STRIP (connected, tight)
       ========================================================= */}
