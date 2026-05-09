@@ -28,7 +28,7 @@ function App() {
           <Route
             path="/refund-policy"
             element={<PolicyPage slug="refund-policy" />}
-          />
+          />.   
         </Routes>
       </BrowserRouter>
     </div>
