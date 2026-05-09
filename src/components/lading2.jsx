@@ -1010,7 +1010,7 @@ export default function LandingPage2() {
         </button>
         <button
           type="button"
-          onClick={() => openBooking("diamond")}
+          onClick={() => openBooking("platinum")}
           data-testid="sticky-mobile-cta"
           className="flex-[1.3] py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold border-t border-[#F0C149]"
           style={{
@@ -1019,9 +1019,9 @@ export default function LandingPage2() {
           }}
         >
           <span className="block text-[9px] opacity-80 tracking-[0.2em]">
-            Diamond · Recommended
+            Platinum · Recommended
           </span>
-          <span className="block text-sm font-black">₹500 · Book Now</span>
+          <span className="block text-sm font-black">₹350 · Book Now</span>
         </button>
       </div>
     </div>
