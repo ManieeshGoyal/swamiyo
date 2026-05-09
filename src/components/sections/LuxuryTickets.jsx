@@ -23,7 +23,7 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
         <div className="text-center mb-14">
           <p className="eyebrow mb-4">Reserve your seat</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-6xl text-[#F5ECD0] font-black leading-[0.95]">
-            Two tiers.{" "}
+            Three tiers.{" "}
             <span className="text-gold-gradient italic">Limited seats.</span>
           </h2>
           <div className="gold-divider mt-6" />
@@ -32,7 +32,144 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-7 max-w-5xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-7 max-w-5xl mx-auto items-stretch">
+          {/* DIAMOND SEAT SOLD OUT */}
+          <div
+            data-testid="gold-ticket-card"
+            className="md:col-span-2 relative overflow-hidden p-8 md:p-9 glass-gold group transition hover:border-[#F0C149]/50"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <Star className="w-4 h-4 text-[#F0C149]" />
+              <p className="eyebrow">Diamond Seat</p>
+            </div>
+
+            <div className="flex items-baseline gap-2 mb-1">
+              <span className="font-serif text-5xl md:text-6xl font-black text-[#F5ECD0]">
+                ₹500
+              </span>
+              <span className="text-[11px] tracking-[0.2em] uppercase text-[#B5AE97] font-semibold">
+                · Entry
+              </span>
+            </div>
+            <p className="text-[#B5AE97] text-sm mb-7 leading-relaxed">
+              Front Premium Seating
+            </p>
+
+            <ul className="space-y-3 mb-8 text-sm">
+              {[
+                "Better visibility of Swami Ji during the live session",
+                "Access to all sessions & activities",
+              ].map((t, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-[#D4CBAF]">
+                  <CheckCircle2 className="w-4 h-4 text-[#B5AE97] mt-0.5 shrink-0" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              type="button"
+              onClick={() => onBook?.("general")}
+              data-testid="gold-book-btn"
+              className="btn-stock-out w-full justify-center"
+              disabled
+            >
+              SOLD OUT <ArrowRight className="w-4 h-4" />
+            </button>
+
+            {/* Corner ornaments */}
+            {[
+              "top-3 left-3 border-t border-l",
+              "top-3 right-3 border-t border-r",
+              "bottom-3 left-3 border-b border-l",
+              "bottom-3 right-3 border-b border-r",
+            ].map((cls, k) => (
+              <span
+                key={k}
+                className={`absolute ${cls} w-5 h-5 border-[#F0C149]/30 pointer-events-none`}
+                aria-hidden
+              />
+            ))}
+          </div>
+          {/* Platinum SEAT — ₹350 — HIGHLIGHTED */}
+          <div
+            data-testid="diamond-ticket-card"
+            className="md:col-span-3 glow-border-gold relative overflow-hidden p-8 md:p-10 glass-gold-strong md:-my-5"
+          >
+            <div className="ribbon">Recommended</div>
+
+            <div className="flex items-center gap-2 mb-4">
+              <Sparkles className="w-4 h-4 text-[#F0C149]" />
+              <p className="eyebrow">Platinum Seat · Premium</p>
+            </div>
+
+            <div className="flex items-baseline gap-3 mb-1">
+              <span
+                className="font-serif text-6xl md:text-7xl font-black text-gold-gradient"
+                style={{ textShadow: "0 0 40px rgba(240,193,73,0.35)" }}
+              >
+                ₹350
+              </span>
+              <span className="text-[11px] tracking-[0.2em] uppercase text-[#B5AE97] font-semibold">
+                · Limited
+              </span>
+            </div>
+            <p className="text-[#F5ECD0] text-sm md:text-base mb-8 mt-2 leading-relaxed font-medium">
+              Comfortable mid-front seating
+            </p>
+
+            <ul className="space-y-3.5 mb-9 text-sm md:text-base">
+              {[
+                <>
+                  <strong className="font-semibold">
+                    Better stage visibility
+                  </strong>{" "}
+                </>,
+                <>
+                  <strong className="font-semibold">
+                    Premium Middle Zone Seating
+                  </strong>{" "}
+                </>,
+                <>
+                  <strong className="font-semibold">
+                    Access to all sessions & activities
+                  </strong>{" "}
+                </>,
+              ].map((t, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-[#F5ECD0]">
+                  <CheckCircle2 className="w-5 h-5 text-[#F0C149] mt-0.5 shrink-0" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              type="button"
+              onClick={() => onBook?.("platinum")}
+              data-testid="diamond-book-btn"
+              className="btn-gold w-full pulse-gold"
+            >
+              <Flame className="w-4 h-4" />
+              Reserve Platinum Seat
+            </button>
+            <p className="text-[11px] text-center text-[#D4CBAF] mt-4 tracking-[0.15em] uppercase font-semibold">
+              Most chosen by past attendees
+            </p>
+
+            {/* Corner ornaments */}
+            {[
+              "top-3 left-3 border-t border-l",
+              "top-3 right-3 border-t border-r",
+              "bottom-3 left-3 border-b border-l",
+              "bottom-3 right-3 border-b border-r",
+            ].map((cls, k) => (
+              <span
+                key={k}
+                className={`absolute ${cls} w-6 h-6 border-[#F0C149]/80 pointer-events-none`}
+                aria-hidden
+              />
+            ))}
+          </div>
           {/* GOLD SEAT — ₹200 */}
           <div
             data-testid="gold-ticket-card"
@@ -52,24 +189,26 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
               </span>
             </div>
             <p className="text-[#B5AE97] text-sm mb-7 leading-relaxed">
-              Standard auditorium access to the full 2-hour guided sadhana.
+              ⁠Standard Seating Access
             </p>
 
             <ul className="space-y-3 mb-8 text-sm">
-              {[
-                "Reserve your seat",
-                "Standard auditorium seating for all participants",
-              ].map((t, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-[#D4CBAF]">
-                  <CheckCircle2 className="w-4 h-4 text-[#B5AE97] mt-0.5 shrink-0" />
-                  <span>{t}</span>
-                </li>
-              ))}
+              {["⁠Standard Seating Access", "⁠Standard Seating Access"].map(
+                (t, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2.5 text-[#D4CBAF]"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#B5AE97] mt-0.5 shrink-0" />
+                    <span>{t}</span>
+                  </li>
+                ),
+              )}
             </ul>
 
             <button
               type="button"
-              onClick={() => onBook?.("general")}
+              onClick={() => onBook?.("gold")}
               data-testid="gold-book-btn"
               className="btn-ghost-gold w-full justify-center"
             >
@@ -86,87 +225,6 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
               <span
                 key={k}
                 className={`absolute ${cls} w-5 h-5 border-[#F0C149]/30 pointer-events-none`}
-                aria-hidden
-              />
-            ))}
-          </div>
-
-          {/* DIAMOND SEAT — ₹500 — HIGHLIGHTED */}
-          <div
-            data-testid="diamond-ticket-card"
-            className="md:col-span-3 glow-border-gold relative overflow-hidden p-8 md:p-10 glass-gold-strong md:-my-5"
-          >
-            <div className="ribbon">Recommended</div>
-
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-[#F0C149]" />
-              <p className="eyebrow">Diamond Seat · Premium</p>
-            </div>
-
-            <div className="flex items-baseline gap-3 mb-1">
-              <span
-                className="font-serif text-6xl md:text-7xl font-black text-gold-gradient"
-                style={{ textShadow: "0 0 40px rgba(240,193,73,0.35)" }}
-              >
-                ₹500
-              </span>
-              <span className="text-[11px] tracking-[0.2em] uppercase text-[#B5AE97] font-semibold">
-                · Limited
-              </span>
-            </div>
-            <p className="text-[#F5ECD0] text-sm md:text-base mb-8 mt-2 leading-relaxed font-medium">
-              Front & closer seating · better visibility of Swami Ji
-            </p>
-
-            <ul className="space-y-3.5 mb-9 text-sm md:text-base">
-              {[
-                <>
-                  <strong className="font-semibold">
-                    Closer seating for stronger spiritual connection & focus
-                  </strong>{" "}
-                </>,
-                <>
-                  <strong className="font-semibold">
-                    Better visibility of Swami Ji during live guidance
-                  </strong>{" "}
-                </>,
-                <>
-                  <strong className="font-semibold">
-                    Limited Diamond seats
-                  </strong>{" "}
-                </>,
-                <>Full Anand Chakra experience</>,
-              ].map((t, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-[#F5ECD0]">
-                  <CheckCircle2 className="w-5 h-5 text-[#F0C149] mt-0.5 shrink-0" />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-
-            <button
-              type="button"
-              onClick={() => onBook?.("premium")}
-              data-testid="diamond-book-btn"
-              className="btn-gold w-full pulse-gold"
-            >
-              <Flame className="w-4 h-4" />
-              Reserve Diamond Seat
-            </button>
-            <p className="text-[11px] text-center text-[#D4CBAF] mt-4 tracking-[0.15em] uppercase font-semibold">
-              Most chosen by past attendees
-            </p>
-
-            {/* Corner ornaments */}
-            {[
-              "top-3 left-3 border-t border-l",
-              "top-3 right-3 border-t border-r",
-              "bottom-3 left-3 border-b border-l",
-              "bottom-3 right-3 border-b border-r",
-            ].map((cls, k) => (
-              <span
-                key={k}
-                className={`absolute ${cls} w-6 h-6 border-[#F0C149]/80 pointer-events-none`}
                 aria-hidden
               />
             ))}

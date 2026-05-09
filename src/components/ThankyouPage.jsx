@@ -29,8 +29,9 @@ const WA_LINK =
 
 export default function ThankyouPage() {
   const [paymentUrls, setPaymentUrls] = useState({
-    Diamond: "https://payments.cashfree.com/forms/AnandChakra5",
+    diamond: "https://payments.cashfree.com/forms/AnandChakra5",
     gold: "https://payments.cashfree.com/forms/AnandChakra2",
+    platinum: "https://payments.cashfree.com/forms?code=AnandChakra3",
   });
 
   useEffect(() => {
@@ -57,14 +58,24 @@ export default function ThankyouPage() {
 
   const goBook = (tier) => {
     const url = paymentUrls[tier];
+
+    const pricing = {
+      gold: 200,
+      platinum: 350,
+      diamond: 500,
+    };
+
     if (typeof window !== "undefined" && window.fbq) {
       window.fbq("track", "InitiateCheckout", {
         content_name: `Anand Chakra ${tier}`,
-        value: tier === "Diamond" ? 500 : 200,
+        value: pricing[tier] || 0,
         currency: "INR",
       });
     }
-    if (url) window.location.href = url;
+
+    if (url) {
+      window.location.href = url;
+    }
   };
 
   return (
@@ -174,25 +185,49 @@ export default function ThankyouPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             <button
               type="button"
-              onClick={() => goBook("Diamond")}
+              onClick={() => goBook("diamond")}
+              data-testid="thankyou-book-gold-btn"
+              className="relative overflow-hidden group p-6 sm:p-7 text-left border border-white/15 bg-[#12151D] lift-hover hover:border-[#d4a73d]/35"
+              disabled
+            >
+              <p className="eyebrow mb-3" style={{ color: "#B5AE97" }}>
+                Diamond | SOLD OUT
+              </p>
+              <div className="font-serif text-4xl sm:text-5xl font-black text-[#F5ECD0] mb-2">
+                ₹500
+              </div>
+              <p className="text-[#B5AE97] text-sm mb-5 leading-relaxed">
+                ⁠Front Premium Seating · Better visibility of Swami Ji during
+                live guidance
+              </p>
+              <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-red-500 font-bold">
+                SOLD OUT{" "}
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => goBook("platinum")}
               data-testid="thankyou-book-Diamond-btn"
               className="relative overflow-hidden group p-6 sm:p-7 text-left border-2 border-[#F0C149] bg-gradient-to-b from-[#1f1708] via-[#0f0c06] to-[#0a0c11] Diamond-shadow lift-hover"
             >
               <div className="absolute top-3 right-3 bg-[#F0C149] text-black text-[9px] tracking-[0.2em] uppercase font-bold px-2 py-0.5">
                 Recommended
               </div>
-              <p className="eyebrow mb-3">Diamond</p>
+              <p className="eyebrow mb-3">PLATINUM</p>
               <div className="font-serif text-4xl sm:text-5xl font-black text-[#F0C149] mb-2">
-                ₹500
+                ₹350
               </div>
               <p className="text-[#D4CBAF] text-sm mb-5 leading-relaxed">
-                Closer seating · better visibility · deeper immersion.
+                Better stage visibility · Premium Middle Zone Seating · Access
+                to all sessions & activities
               </p>
               <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
-                Book Diamond{" "}
+                Book Platinum{" "}
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
               </span>
             </button>
@@ -210,7 +245,8 @@ export default function ThankyouPage() {
                 ₹200
               </div>
               <p className="text-[#B5AE97] text-sm mb-5 leading-relaxed">
-                Standard auditorium access · full 2-hour guided sadhana.
+                Comfortable seating arrangement · Access to all sessions &
+                activities
               </p>
               <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
                 Book gold{" "}

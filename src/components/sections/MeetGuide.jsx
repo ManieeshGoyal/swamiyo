@@ -202,7 +202,7 @@ export default function MeetGuide({ onBook }) {
 
             <button
               type="button"
-              onClick={() => onBook?.("premium")}
+              onClick={() => onBook?.("platinum")}
               data-testid="guide-book-btn"
               className="btn-gold"
             >

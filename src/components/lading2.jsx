@@ -49,10 +49,8 @@ const AUDITORIUM_2 =
   "https://customer-assets.emergentagent.com/job_inner-awakening-vdo/artifacts/3zusqtbp_e3f4067e-26d8-474d-8bf7-55c9f26b21a7.jpeg";
 
 // Hero composed visual asset (Shiv-Shakti + Bhairav + Swami Yo merged with sacred mountain temple)
-const HERO_MERGE =
-  "https://customer-assets.emergentagent.com/job_inner-awakening-vdo/artifacts/ust0i3ve_SWAMI%20YO%20MERGE.png";
-const HERO_MERGE_MOBILE =
-  "https://customer-assets.emergentagent.com/job_inner-awakening-vdo/artifacts/usmg682q_C0169D25-1DE5-47C3-A46A-2323399EE61D.png";
+const HERO_MERGE = "./images/Untitled-3.png";
+const HERO_MERGE_MOBILE = "./images/Phone.png";
 
 const SOCIAL_PROOF_BG =
   "https://images.pexels.com/photos/7163160/pexels-photo-7163160.jpeg";
@@ -80,7 +78,7 @@ const FAQS = [
   },
 ];
 
-export default function LandingPage() {
+export default function LandingPage2() {
   const [stats, setStats] = useState({
     total_seats: 500,
     seats_booked: 327,
@@ -173,371 +171,129 @@ export default function LandingPage() {
       {/* =========================================================
           SECTION 1 — HERO (diamond, divine composition, two-column)
       ========================================================= */}
+
       <section
         data-testid="hero-section"
-        className="relative min-h-[100svh] flex items-end md:items-center isolate overflow-hidden"
+        className="relative items-end md:items-center isolate overflow-hidden"
       >
         {/* Backdrop layers — single composed image as the hero canvas */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[#030305]" />
-
-          {/* The composed merge: Shiv-Shakti + Bhairav + Swami Yo + sacred temple */}
-          <div className="absolute inset-0">
+        <div className=" inset-0 -z-10">
+          <div className=" inset-0">
             {/* Desktop / tablet image */}
-            <img
-              src={HERO_MERGE}
-              alt=""
-              loading="eager"
-              className="hidden md:block w-full h-full object-contain"
-              style={{
-                objectPosition: "right center",
-                filter: "contrast(1.05) saturate(1.05) brightness(0.92)",
-              }}
-            />
-            {/* Mobile image — dedicated portrait composition (Shiv-Shakti top + Bhairav + Swami Yo + temple) */}
-            {/* <img
-              src={HERO_MERGE_MOBILE}
-              alt=""
-              loading="eager"
-              className="md:hidden w-full h-full object-cover slow-zoom"
-              style={{
-                objectPosition: "center top",
-                filter: "contrast(1.05) saturate(1.05) brightness(0.40)",
-              }}
-            /> */}
-          </div>
+            <picture>
+              {/* Mobile Image */}
+              <source media="(max-width: 767px)" srcSet={HERO_MERGE_MOBILE} />
 
-          {/* Crimson + gold radial accent in lower right (for ember warmth) */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle 500px at 80% 90%, rgba(230,83,42,0.25) 0%, transparent 60%), radial-gradient(circle 350px at 70% 30%, rgba(240,193,73,0.15) 0%, transparent 65%)",
-            }}
-          />
-
-          {/* Read-gradient — desktop strong dark-left for text */}
-          <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[#030305] via-[#030305]/70 to-transparent" />
-          {/* Mobile read-gradient — image already has dark bottom built-in, just blend the seam */}
-          <div
-            className="absolute inset-0 md:hidden pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(3,3,5,0) 0%, rgba(3,3,5,0) 55%, rgba(3,3,5,0.4) 75%, rgba(3,3,5,0.85) 92%, #030305 100%)",
-            }}
-          />
-          {/* Bottom subtle vignette desktop */}
-          <div className="absolute inset-0 hidden md:block bg-gradient-to-t from-[#030305]/85 via-transparent to-transparent" />
-
-          {/* Rising ember particles for ambient mystic feel */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {Array.from({ length: 22 }).map((_, i) => {
-              const left = (i * 4.2 + (i % 5) * 2.1) % 100;
-              const dur = 9 + ((i * 1.4) % 8);
-              const delay = (i * 0.8) % 12;
-              const size = 2 + ((i * 1.7) % 3);
-              return (
-                <span
-                  key={i}
-                  className="ember-particle"
-                  style={{
-                    left: `${left}%`,
-                    width: `${size}px`,
-                    height: `${size}px`,
-                    animationDuration: `${dur}s`,
-                    animationDelay: `${delay}s`,
-                  }}
-                />
-              );
-            })}
+              {/* Desktop Image */}
+              <img
+                src={HERO_MERGE}
+                alt="Hero Banner"
+                loading="eager"
+                className="w-full h-full object-contain md:object-cover"
+              />
+            </picture>
           </div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-8 md:py-14 w-full">
-          {/* Brand row */}
+        <div className="grid p-2 sm:static md:absolute scale-100 bottom-0 left-[2%]  md:grid-cols-2 gap-3 w-[auto] md:left-[13%] md:bottom-[8%]">
+          <button
+            type="button"
+            onClick={() => openBooking("platinum")}
+            data-testid="hero-book-btn"
+            className="btn-gold  pulse-gold flex-1 sm:flex-none"
+          >
+            <span className="flex flex-col items-start leading-tight text-left">
+              <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
+                Platinum · ₹350
+              </span>
+              <span>Book Platinum Seat</span>
+            </span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => openBooking("gold")}
+            data-testid="hero-book-gold-btn"
+            className="btn-ghost-gold flex-1 sm:flex-none"
+          >
+            <span className="flex flex-col items-start leading-tight text-left">
+              <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
+                Gold · ₹200
+              </span>
+              <span>Reserve Gold Seat</span>
+            </span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => openBooking("diamond")}
+            data-testid="hero-book-btn"
+            className="btn-stock-out hidden md:inline-flex md:flex-1 sm:flex-none pointer-events-none "
+            disabled
+          >
+            <span className="flex flex-col items-start leading-tight text-left">
+              <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
+                Diamond · ₹500 | <span className="text-red-600"> SOLD OUT</span>
+              </span>
+              <span>SOLD OUT</span>
+            </span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="hero-whatsapp-cta"
+            className="items-center justify-center gap-2 bg-[#25D366] text-black font-bold uppercase tracking-[0.14em] px-5 text-[11px] sm:text-xs hover:bg-[#1ebe5a] transition py-3 sm:py-0 shadow-[0_8px_24px_rgba(37,211,102,0.25)]"
+          >
+            <WhatsAppIcon className="w-10 h-10" />
+            WhatsApp Assistance
+          </a>
+        </div>
+
+        {/* <div className=" z-10">
           <div className="flex items-center justify-between mb-8 md:mb-12 animate-fade-in-up">
-            <div className="flex items-center gap-3">
-              <img
-                src={SWAMI_LOGO}
-                alt="Swami Yo"
-                className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
-              />
-            </div>
             <a
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
               data-testid="hero-whatsapp-link"
-              className="hidden sm:inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#B5AE97] hover:text-[#F0C149] transition font-semibold"
+              className="items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#B5AE97] hover:text-[#F0C149] transition font-semibold"
             >
               <WhatsAppIcon className="w-4 h-4" /> WhatsApp Support
             </a>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* ===== LEFT — text & CTAs (image is the right backdrop) ===== */}
-            <div
-              className="lg:col-span-7 animate-fade-in-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#F0C149]/35 bg-[#F0C149]/5 mb-5 backdrop-blur-sm">
-                <Flame className="w-3.5 h-3.5 text-[#e6532a]" />
-                <span className="eyebrow !tracking-[0.28em]">
-                  For the first time in Vadodara
-                </span>
-              </div>
-
-              <h1
-                data-testid="hero-heading"
-                className="font-serif text-[2.8rem] leading-[0.9] sm:text-[4.4rem] lg:text-[5.8rem] font-black mb-3"
-                style={{
-                  textShadow:
-                    "0 6px 40px rgba(0,0,0,0.85), 0 0 60px rgba(230,83,42,0.18)",
-                }}
-              >
-                <span
-                  className="block tracking-[-0.02em]"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, #fde9b0 0%, #f0c149 45%, #c89a2e 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  AANAND
-                </span>
-                <span
-                  className="block tracking-[-0.02em]"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, #fde9b0 0%, #f0c149 45%, #c89a2e 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  CHAKRA
-                </span>
-              </h1>
-
-              {/* Ornamental divider — gold line with ॐ glyph */}
-              <div className="flex items-center gap-3 mb-5 max-w-sm">
-                <span className="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-[#F0C149] to-[#F0C149]" />
-                <span
-                  className="text-[#F0C149] font-serif"
-                  style={{
-                    fontSize: "1.3rem",
-                    lineHeight: 1,
-                    textShadow: "0 0 18px rgba(240,193,73,0.85)",
-                  }}
-                >
-                  ॐ
-                </span>
-                <span className="h-[1.5px] flex-1 bg-gradient-to-l from-transparent via-[#F0C149] to-[#F0C149]" />
-              </div>
-
-              {/* Sub heading — refined two-line composition, italic connector + gold display */}
-              <div data-testid="hero-subheading" className="mb-7 max-w-3xl">
-                <p
-                  className="font-serif italic font-medium text-[#F5ECD0] tracking-tight leading-tight uppercase"
-                  style={{
-                    fontSize: "clamp(0.95rem, 1.7vw, 1.55rem)",
-                    letterSpacing: "0.15em",
-                    textShadow: "0 2px 20px rgba(0,0,0,0.7)",
-                  }}
-                >
-                  Inner Awakening Through
-                </p>
-                <p
-                  className="font-serif font-black tracking-tight leading-[0.95] mt-2"
-                  style={{
-                    fontSize: "clamp(2.1rem, 4.6vw, 4rem)",
-                    background:
-                      "linear-gradient(180deg, #fde9b0 0%, #f0c149 45%, #c89a2e 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    textShadow: "0 6px 30px rgba(0,0,0,0.5)",
-                  }}
-                >
-                  Shiv Shakti
-                  <span
-                    className="mx-1.5 italic"
-                    style={{
-                      WebkitTextFillColor: "#F5ECD0",
-                      fontWeight: 500,
-                    }}
-                  >
-                    &
-                  </span>
-                  <br />
-                  Bhairav Sadhana
-                </p>
-              </div>
-
-              <p className="text-base sm:text-lg text-[#D4CBAF] font-medium leading-relaxed mb-7 max-w-xl">
-                A guided inner awakening session with{" "}
-                <span className="text-[#F0C149] font-bold">Swami Yo</span>.
-              </p>
-
-              {/* Highlight pills — bigger, bolder */}
-              <div className="flex flex-wrap gap-3 mb-8">
-                {[
-                  {
-                    i: <Sparkles className="w-4 h-4" />,
-                    t: "Limited Seats Only",
-                  },
-                  { i: <Calendar className="w-4 h-4" />, t: "31 May 2026" },
-                  { i: <Clock className="w-4 h-4" />, t: "7:00 – 9:00 PM" },
-                  {
-                    i: <MapPin className="w-4 h-4" />,
-                    t: "CC Mehta Auditorium",
-                  },
-                ].map((p, i) => (
-                  <span
-                    key={i}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 border border-[#F0C149]/40 bg-[#0a0a0a]/70 backdrop-blur-sm text-[13px] sm:text-sm tracking-[0.05em] text-[#F5ECD0] font-semibold"
-                  >
-                    <span className="text-[#F0C149]">{p.i}</span>
-                    {p.t}
-                  </span>
-                ))}
-              </div>
-
-              {/* CTA Trio */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button
-                  type="button"
-                  onClick={() => openBooking("diamond")}
-                  data-testid="hero-book-btn"
-                  className="btn-stock-out flex-1 sm:flex-none pointer-events-none"
-                  disabled
-                >
-                  <span className="flex flex-col items-start leading-tight text-left">
-                    <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
-                      Diamond · ₹500 |{" "}
-                      <span className="text-red-600"> SOLD OUT</span>
-                    </span>
-                    <span>SOLD OUT</span>
-                  </span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => openBooking("platinum")}
-                  data-testid="hero-book-btn"
-                  className="btn-gold pulse-gold flex-1 sm:flex-none"
-                >
-                  <span className="flex flex-col items-start leading-tight text-left">
-                    <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
-                      Platinum · ₹350
-                    </span>
-                    <span>Book Platinum Seat</span>
-                  </span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => openBooking("gold")}
-                  data-testid="hero-book-gold-btn"
-                  className="btn-ghost-gold flex-1 sm:flex-none"
-                >
-                  <span className="flex flex-col items-start leading-tight text-left">
-                    <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
-                      Gold · ₹200
-                    </span>
-                    <span>Reserve Gold Seat</span>
-                  </span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <a
-                  href={waLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="hero-whatsapp-cta"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-black font-bold uppercase tracking-[0.14em] px-5 text-[11px] sm:text-xs hover:bg-[#1ebe5a] transition py-3 sm:py-0 shadow-[0_8px_24px_rgba(37,211,102,0.25)]"
-                >
-                  <WhatsAppIcon className="w-10 h-10" />
-                  WhatsApp Assistance
-                </a>
-              </div>
-
-              <section className="my-5 block md:hidden">
-                <div className="flex justify-between ">
-                  <img
-                    className="w-[31%] rounded-full"
-                    src="./images/ARD.png"
-                    alt="Bhagwan Shiv"
-                  />
-                  <img
-                    className="w-[31%] rounded-full"
-                    src="./images/Bhairav.png"
-                    alt="Bhagwan Shiv"
-                  />{" "}
-                  <img
-                    className="w-[31%] rounded-full "
-                    src="./images/BABA.png"
-                    alt="Bhagwan Shiv"
-                  />
-                </div>
-              </section>
-
-              {/* Compare + seats remaining */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5">
-                <button
-                  type="button"
-                  onClick={() =>
-                    ticketsRef.current?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    })
-                  }
-                  data-testid="compare-tiers-btn"
-                  className="text-[11px] tracking-[0.22em] uppercase text-[#F0C149] hover:text-[#f5d97c] underline underline-offset-4 decoration-[#F0C149]/40 hover:decoration-[#F0C149] transition font-semibold inline-flex items-center gap-1.5"
-                >
-                  Diamond vs Gold <ArrowRight className="w-3 h-3" />
-                </button>
-                <p className="text-[11px] tracking-[0.2em] uppercase text-[#D4CBAF] font-semibold">
-                  <Users className="w-3.5 h-3.5 inline mr-1.5 text-[#F0C149]" />
-                  {stats.seats_remaining} of 500 seats left
-                </p>
-              </div>
-
-              {/* Countdown — compact, tucked below CTAs on desktop */}
-              <div className="mt-7 flex items-center gap-4 sm:gap-7">
-                {[
-                  { l: "Days", v: countdown.d },
-                  { l: "Hours", v: countdown.h },
-                  { l: "Min", v: countdown.m },
-                  { l: "Sec", v: countdown.s },
-                ].map((c) => (
-                  <div key={c.l} className="text-left">
-                    <div className="font-serif text-2xl sm:text-3xl font-black text-[#F5ECD0] tabular-nums leading-none">
-                      {String(c.v).padStart(2, "0")}
-                    </div>
-                    <div className="text-[9px] tracking-[0.25em] uppercase text-[#B5AE97] mt-1 font-semibold">
-                      {c.l}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT side intentionally empty — the hero merge image is the visual */}
-            <div
-              className="lg:col-span-5 relative h-full hidden lg:block"
-              data-testid="hero-visual"
-              aria-hidden
-            />
-          </div>
-        </div>
-
-        {/* Scroll cue */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.3em] uppercase text-[#7a7263] hidden md:block">
-          ↓ Scroll
-        </div>
+        </div> */}
       </section>
+
+      {/* <div className="bottom-0 px-1 py-2 grid grid-cols-1 gap-3 w-[auto]">
+        <button
+          type="button"
+          onClick={() => openBooking("diamond")}
+          data-testid="hero-book-btn"
+          className="btn-stock-out inline-flex scale-90 flex-1 sm:flex-none pointer-events-none"
+          disabled
+        >
+          <span className="flex flex-col items-start leading-tight text-left">
+            <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
+              Diamond · ₹500 | <span className="text-red-600"> SOLD OUT</span>
+            </span>
+            <span>SOLD OUT</span>
+          </span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
+
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-testid="hero-whatsapp-cta"
+          className="inline-flex items-center scale-90 md:scale-100 justify-center gap-2 bg-[#25D366] text-black font-bold uppercase tracking-[0.14em] px-5 text-[11px] sm:text-xs hover:bg-[#1ebe5a] transition py-3 sm:py-0 shadow-[0_8px_24px_rgba(37,211,102,0.25)]"
+        >
+          <WhatsAppIcon className="w-10 h-10" />
+          WhatsApp Assistance
+        </a>
+      </div> */}
 
       {/* =========================================================
           SECTION 2 — TRUST STRIP (connected, tight)
@@ -1218,7 +974,7 @@ export default function LandingPage() {
       </a>
 
       {/* Desktop sticky BOOK bar — diamond floating pill */}
-      <button
+      {/* <button
         type="button"
         onClick={() => openBooking("diamond")}
         data-testid="sticky-desktop-book-btn"
@@ -1234,7 +990,7 @@ export default function LandingPage() {
           </span>
         </span>
         <ArrowRight className="w-4 h-4 text-[#F0C149] group-hover:translate-x-0.5 transition-transform" />
-      </button>
+      </button> */}
 
       {/* Sticky mobile CTA — Gold / Diamond split */}
       <div
