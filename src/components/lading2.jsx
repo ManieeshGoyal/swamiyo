@@ -63,7 +63,7 @@ const FAQS = [
   {
     q: "What should I bring?",
     a: "Bring yourself with an open mind. Wear loose, comfortable clothing. A small water bottle is allowed. Avoid heavy meals just before the session.",
-  },
+  },    
   {
     q: "What is the entry timing?",
     a: "Please arrive by 6:30 PM for smooth check-in. The guided sadhana starts sharp at 7:00 PM and runs till 9:00 PM. Late entry may be restricted after the session begins.",
