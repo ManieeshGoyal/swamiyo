@@ -202,9 +202,9 @@ export default function MeetGuide({ onBook }) {
 
             <button
               type="button"
-              onClick={() => onBook?.("platinum")}
+              onClick={() => onBook?.("gold")}
               data-testid="guide-book-btn"
-              className="btn-gold"
+              className=" btn-gold pulse-gold "
             >
               Meet Swami Yo in Person
               <ArrowRight className="w-4 h-4" />

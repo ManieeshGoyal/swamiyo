@@ -211,23 +211,23 @@ export default function ThankyouPage() {
 
             <button
               type="button"
-              onClick={() => goBook("platinum")}
+              onClick={() => goBook("gold")}
               data-testid="thankyou-book-Diamond-btn"
               className="relative overflow-hidden group p-6 sm:p-7 text-left border-2 border-[#F0C149] bg-gradient-to-b from-[#1f1708] via-[#0f0c06] to-[#0a0c11] Diamond-shadow lift-hover"
             >
               <div className="absolute top-3 right-3 bg-[#F0C149] text-black text-[9px] tracking-[0.2em] uppercase font-bold px-2 py-0.5">
                 Recommended
               </div>
-              <p className="eyebrow mb-3">PLATINUM</p>
+              <p className="eyebrow mb-3">GOLD</p>
               <div className="font-serif text-4xl sm:text-5xl font-black text-[#F0C149] mb-2">
-                ₹350
+                ₹200
               </div>
               <p className="text-[#D4CBAF] text-sm mb-5 leading-relaxed">
-                Better stage visibility · Premium Middle Zone Seating · Access
-                to all sessions & activities
+                Comfortable seating arrangement · Access to all sessions &
+                activities
               </p>
               <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
-                Book Platinum{" "}
+                Book GOLD{" "}
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
               </span>
             </button>
@@ -235,21 +235,22 @@ export default function ThankyouPage() {
             <button
               type="button"
               onClick={() => goBook("gold")}
+              disabled
               data-testid="thankyou-book-gold-btn"
               className="relative overflow-hidden group p-6 sm:p-7 text-left border border-white/15 bg-[#12151D] lift-hover hover:border-[#d4a73d]/35"
             >
               <p className="eyebrow mb-3" style={{ color: "#B5AE97" }}>
-                gold
+                Platinum
               </p>
               <div className="font-serif text-4xl sm:text-5xl font-black text-[#F5ECD0] mb-2">
-                ₹200
+                ₹350
               </div>
               <p className="text-[#B5AE97] text-sm mb-5 leading-relaxed">
                 Comfortable seating arrangement · Access to all sessions &
                 activities
               </p>
-              <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-[#F0C149] font-bold">
-                Book gold{" "}
+              <span className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-red-500 font-bold">
+                SOLD OUT{" "}
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
               </span>
             </button>

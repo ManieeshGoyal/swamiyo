@@ -91,7 +91,7 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
               />
             ))}
           </div>
-          {/* Platinum SEAT — ₹350 — HIGHLIGHTED */}
+          {/* Platinum SEAT — ₹200 — HIGHLIGHTED */}
           <div
             data-testid="diamond-ticket-card"
             className="md:col-span-3 glow-border-gold relative overflow-hidden p-8 md:p-10 glass-gold-strong md:-my-5"
@@ -100,7 +100,7 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
 
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="w-4 h-4 text-[#F0C149]" />
-              <p className="eyebrow">Platinum Seat · Premium</p>
+              <p className="eyebrow">GOLD SEAT</p>
             </div>
 
             <div className="flex items-baseline gap-3 mb-1">
@@ -108,26 +108,21 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
                 className="font-serif text-6xl md:text-7xl font-black text-gold-gradient"
                 style={{ textShadow: "0 0 40px rgba(240,193,73,0.35)" }}
               >
-                ₹350
+                ₹200
               </span>
               <span className="text-[11px] tracking-[0.2em] uppercase text-[#B5AE97] font-semibold">
                 · Limited
               </span>
             </div>
             <p className="text-[#F5ECD0] text-sm md:text-base mb-8 mt-2 leading-relaxed font-medium">
-              Comfortable mid-front seating
+              ⁠Standard Seating Access
             </p>
 
             <ul className="space-y-3.5 mb-9 text-sm md:text-base">
               {[
                 <>
                   <strong className="font-semibold">
-                    Better stage visibility
-                  </strong>{" "}
-                </>,
-                <>
-                  <strong className="font-semibold">
-                    Premium Middle Zone Seating
+                    Comfortable seating arrangement
                   </strong>{" "}
                 </>,
                 <>
@@ -145,12 +140,12 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
 
             <button
               type="button"
-              onClick={() => onBook?.("platinum")}
+              onClick={() => onBook?.("gold")}
               data-testid="diamond-book-btn"
               className="btn-gold w-full pulse-gold"
             >
               <Flame className="w-4 h-4" />
-              Reserve Platinum Seat
+              Reserve Gold Seat
             </button>
             <p className="text-[11px] text-center text-[#D4CBAF] mt-4 tracking-[0.15em] uppercase font-semibold">
               Most chosen by past attendees
@@ -177,12 +172,12 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
           >
             <div className="flex items-center gap-2 mb-4">
               <Star className="w-4 h-4 text-[#F0C149]" />
-              <p className="eyebrow">Gold Seat</p>
+              <p className="eyebrow">Platinum Seat</p>
             </div>
 
             <div className="flex items-baseline gap-2 mb-1">
               <span className="font-serif text-5xl md:text-6xl font-black text-[#F5ECD0]">
-                ₹200
+                ₹350
               </span>
               <span className="text-[11px] tracking-[0.2em] uppercase text-[#B5AE97] font-semibold">
                 · Entry
@@ -194,11 +189,19 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
 
             <ul className="space-y-3 mb-8 text-sm">
               {[
-                "Comfortable seating arrangement",
-                " Access to all sessions & activities",
+                <>
+                  <strong className="font-semibold">
+                    Better stage visibility
+                  </strong>{" "}
+                </>,
+                <>
+                  <strong className="font-semibold">
+                    Access to all sessions & activities
+                  </strong>{" "}
+                </>,
               ].map((t, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-[#D4CBAF]">
-                  <CheckCircle2 className="w-4 h-4 text-[#B5AE97] mt-0.5 shrink-0" />
+                <li key={i} className="flex items-start gap-2.5 text-[#F5ECD0]">
+                  <CheckCircle2 className="w-5 h-5 text-[#D4CBAF] mt-0.5 shrink-0" />
                   <span>{t}</span>
                 </li>
               ))}
@@ -206,11 +209,33 @@ const LuxuryTickets = forwardRef(function LuxuryTickets({ onBook }, ref) {
 
             <button
               type="button"
-              onClick={() => onBook?.("gold")}
               data-testid="gold-book-btn"
-              className="btn-ghost-gold w-full justify-center"
+              class="btn-stock-out w-full justify-center"
+              disabled=""
+              x-file-name="LuxuryTickets"
+              x-line-number="70"
+              x-column="12"
+              x-component="button"
+              x-id="LuxuryTickets_70_12"
+              x-dynamic="false"
             >
-              Reserve Gold Seat <ArrowRight className="w-4 h-4" />
+              SOLD OUT{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right w-4 h-4"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
             </button>
 
             {/* Corner ornaments */}

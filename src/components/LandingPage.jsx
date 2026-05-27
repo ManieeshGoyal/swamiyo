@@ -441,10 +441,10 @@ export default function LandingPage() {
                   type="button"
                   onClick={() => openBooking("gold")}
                   data-testid="hero-book-gold-btn"
-                  className="btn-ghost-gold flex-1 sm:flex-none"
+                  className="btn-gold pulse-gold  flex-1 sm:flex-none"
                 >
                   <span className="flex flex-col items-start leading-tight text-left">
-                    <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
+                    <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85 ">
                       Gold · ₹200
                     </span>
                     <span>Reserve Gold Seat</span>

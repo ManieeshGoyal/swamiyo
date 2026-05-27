@@ -133,12 +133,12 @@ export default function LandingPage2() {
     return () => clearInterval(id);
   }, []);
 
-  const openBooking = (tier = "platinum") => {
+  const openBooking = (tier = "gold") => {
     const url = paymentUrls[tier];
 
     const pricing = {
       gold: 200,
-      platinum: 350,
+      gold: 350,
       diamond: 500,
     };
 
@@ -198,15 +198,16 @@ export default function LandingPage2() {
         <div className="grid p-2 sm:static md:absolute scale-100 bottom-0 left-[2%]  md:grid-cols-2 gap-3 w-[auto] md:left-[13%] md:bottom-[8%]">
           <button
             type="button"
-            onClick={() => openBooking("platinum")}
+            onClick={() => openBooking("diamond")}
             data-testid="hero-book-btn"
-            className="btn-gold  pulse-gold flex-1 sm:flex-none"
+            className="btn-stock-out hidden md:inline-flex md:flex-1 sm:flex-none pointer-events-none "
+            disabled
           >
-            <span className="flex flex-col  items-start leading-tight text-left">
+            <span className="flex flex-col items-start leading-tight text-left">
               <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
-                Platinum · ₹350
+                gold · ₹350 | <span className="text-red-600"> SOLD OUT</span>
               </span>
-              <span>Reserve Platinum Seat</span>
+              <span>SOLD OUT</span>
             </span>
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -214,7 +215,7 @@ export default function LandingPage2() {
             type="button"
             onClick={() => openBooking("gold")}
             data-testid="hero-book-gold-btn"
-            className="btn-ghost-gold flex-1 sm:flex-none"
+            className="btn-gold pulse-gold  flex-1 sm:flex-none"
           >
             <span className="flex flex-col items-start leading-tight text-left">
               <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
@@ -309,7 +310,7 @@ export default function LandingPage2() {
             data-testid="compare-tiers-btn"
             className="text-[11px] tracking-[0.22em] uppercase text-[#F0C149] hover:text-[#f5d97c] underline underline-offset-4 decoration-[#F0C149]/40 hover:decoration-[#F0C149] transition font-semibold inline-flex items-center gap-1.5"
           >
-            Diamond vs Platinum vs Gold <ArrowRight className="w-3 h-3" />
+            Diamond vs gold vs Gold <ArrowRight className="w-3 h-3" />
           </button>
           <p className="text-[11px] tracking-[0.2em] uppercase text-[#D4CBAF] font-semibold">
             <Users className="w-3.5 h-3.5 inline mr-1.5 text-[#F0C149]" />
@@ -502,7 +503,7 @@ export default function LandingPage2() {
           <div className="mt-12 text-center">
             <button
               type="button"
-              onClick={() => openBooking("platinum")}
+              onClick={() => openBooking("gold")}
               data-testid="experience-book-btn"
               className="btn-gold"
             >
@@ -577,7 +578,7 @@ export default function LandingPage2() {
 
               <button
                 type="button"
-                onClick={() => openBooking("platinum")}
+                onClick={() => openBooking("gold")}
                 data-testid="immersive-book-btn"
                 className="btn-ghost-gold mt-9"
               >
@@ -810,7 +811,7 @@ export default function LandingPage2() {
 
           <button
             type="button"
-            onClick={() => openBooking("platinum")}
+            onClick={() => openBooking("gold")}
             data-testid="urgency-book-btn"
             className="btn-gold"
           >
@@ -883,7 +884,7 @@ export default function LandingPage2() {
           </h2>
           <button
             type="button"
-            onClick={() => openBooking("platinum")}
+            onClick={() => openBooking("gold")}
             data-testid="final-cta-btn"
             className="btn-gold pulse-gold"
           >
@@ -1041,17 +1042,6 @@ export default function LandingPage2() {
         <button
           type="button"
           onClick={() => openBooking("gold")}
-          data-testid="sticky-mobile-gold-cta"
-          className="flex-1 py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold bg-[#0f1118] text-[#F0C149] border-t border-r border-[#F0C149]/50"
-        >
-          <span className="block text-[9px] opacity-80 tracking-[0.2em]">
-            Gold Seat
-          </span>
-          <span className="block text-sm font-black">₹200 · Book</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => openBooking("platinum")}
           data-testid="sticky-mobile-cta"
           className="flex-[1.3] py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold border-t border-[#F0C149]"
           style={{
@@ -1060,9 +1050,9 @@ export default function LandingPage2() {
           }}
         >
           <span className="block text-[9px] opacity-80 tracking-[0.2em]">
-            Platinum · Recommended
+            gold · Recommended
           </span>
-          <span className="block text-sm font-black">₹350 · Book Now</span>
+          <span className="block text-sm font-black">₹200 · Book Now</span>
         </button>
       </div>
     </div>
