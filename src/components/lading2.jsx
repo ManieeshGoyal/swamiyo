@@ -965,15 +965,19 @@ export default function LandingPage2() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[#ffffff] hover:text-[#F0C149] transition text-xs"
+              className="flex items-center gap-2 text-[#ffffff] hover:text-[#F0C149] transition text-xs mb-2"
             >
               <WhatsAppIcon className="w-4 h-4" /> WhatsApp Support
             </a>
+            <p className="text-[#ffffff]">
+              Address: Swami Vivekananda Sanskar Kendra, Thakur Ghar,
+              Mahadevnagar, Mograwadi, Valsad-396001.
+            </p>
           </div>
         </div>
 
         <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-[#d4a73d]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] tracking-[0.2em] uppercase text-[#57504a] font-semibold">
-          <p>© 2026 Elite Enterprise · Elitek Digitals</p>
+          <p>© 2026 Swamiyo Foundation</p>
           <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
             <Link
               to="/privacy-policy"
