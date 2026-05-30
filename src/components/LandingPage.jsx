@@ -444,9 +444,13 @@ export default function LandingPage() {
                   className="btn-gold pulse-gold  flex-1 sm:flex-none"
                 >
                   <span className="flex flex-col items-start leading-tight text-left">
-                    <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85 ">
-                      Gold · ₹200
+                    <span className="flex flex-col items-start leading-tight text-left">
+                    <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
+                      Diamond · ₹500 |{" "}
+                      <span className="text-red-600"> SOLD OUT</span>
                     </span>
+                    <span>SOLD OUT</span>
+                  </span>
                     <span>Reserve Gold Seat</span>
                   </span>
                   <ArrowRight className="w-4 h-4" />

@@ -206,7 +206,7 @@ export default function MeetGuide({ onBook }) {
               data-testid="guide-book-btn"
               className=" btn-gold pulse-gold "
             >
-              Meet Swami Yo in Person
+              SOLD OUT
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

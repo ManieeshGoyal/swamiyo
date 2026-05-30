@@ -87,9 +87,9 @@ export default function LandingPage2() {
   const [countdown, setCountdown] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [whatsapp, setWhatsapp] = useState("919664003370");
   const [paymentUrls, setPaymentUrls] = useState({
-    diamond: "https://payments.cashfree.com/forms/AnandChakra5",
-    gold: "https://payments.cashfree.com/forms/AnandChakra2",
-    platinum: "https://payments.cashfree.com/forms?code=AnandChakra3",
+    // diamond: "https://payments.cashfree.com/forms/AnandChakra5",
+    // gold: "https://payments.cashfree.com/forms/AnandChakra2",
+    // platinum: "https://payments.cashfree.com/forms?code=AnandChakra3",
   });
 
   const ticketsRef = useRef(null);
@@ -205,23 +205,24 @@ export default function LandingPage2() {
           >
             <span className="flex flex-col items-start leading-tight text-left">
               <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
-                gold · ₹350 | <span className="text-red-600"> SOLD OUT</span>
+                gold · ₹200 | <span className="text-red-600"> SOLD OUT</span>
               </span>
               <span>SOLD OUT</span>
             </span>
             <ArrowRight className="w-4 h-4" />
           </button>
-          <button
+           <button
             type="button"
-            onClick={() => openBooking("gold")}
-            data-testid="hero-book-gold-btn"
-            className="btn-gold pulse-gold  flex-1 sm:flex-none"
+            onClick={() => openBooking("diamond")}
+            data-testid="hero-book-btn"
+            className="btn-stock-out hidden md:inline-flex md:flex-1 sm:flex-none pointer-events-none "
+            disabled
           >
             <span className="flex flex-col items-start leading-tight text-left">
               <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
-                Gold · ₹200
+               platinum · ₹350 | <span className="text-red-600"> SOLD OUT</span>
               </span>
-              <span>Reserve Gold Seat</span>
+              <span>SOLD OUT</span>
             </span>
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -488,7 +489,7 @@ export default function LandingPage2() {
                 key={i}
                 className="bg-[#0a0c11] border border-[#d4a73d]/15 p-7 md:p-9 lift-hover hover:border-[#d4a73d]/40 hover:bg-[#0e1118]"
               >
-                <div className="text-[#F0C149] mb-4">{x.icon}</div>
+                <div className="text-[#F0C149] mb-4">{x.icon}</div> 
                 <h3 className="font-serif text-xl sm:text-2xl text-[#F5ECD0] mb-2.5 font-bold leading-tight">
                   {x.title}
                 </h3>
@@ -505,9 +506,9 @@ export default function LandingPage2() {
               type="button"
               onClick={() => openBooking("gold")}
               data-testid="experience-book-btn"
-              className="btn-gold"
+              className="btn-stock-out"
             >
-              Reserve Your Seat <ArrowRight className="w-4 h-4" />
+              SOLD OUT<ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -582,7 +583,7 @@ export default function LandingPage2() {
                 data-testid="immersive-book-btn"
                 className="btn-ghost-gold mt-9"
               >
-                Reserve your seat <ArrowRight className="w-4 h-4" />
+               SOLD OUT <ArrowRight className="w-4 h-4" />
               </button>
             </div>
 
@@ -813,9 +814,9 @@ export default function LandingPage2() {
             type="button"
             onClick={() => openBooking("gold")}
             data-testid="urgency-book-btn"
-            className="btn-gold"
+            className="btn-stock-out"
           >
-            Reserve Before It Closes →
+            SOLD OUT
           </button>
         </div>
       </section>
@@ -886,10 +887,10 @@ export default function LandingPage2() {
             type="button"
             onClick={() => openBooking("gold")}
             data-testid="final-cta-btn"
-            className="btn-gold pulse-gold"
+            className="btn-stock-out pulse-gold"
           >
             <Flame className="w-4 h-4" />
-            Book Your Seat Now
+            SOLD OUT
           </button>
           <p className="mt-6 text-xs tracking-[0.2em] uppercase text-[#D4CBAF] font-semibold">
             31 May 2026 · CC Mehta Auditorium, Vadodara
@@ -1032,7 +1033,7 @@ export default function LandingPage2() {
             {stats.seats_remaining} seats left · {stats.total_seats} total
           </span>
           <span className="text-sm font-black tracking-[0.12em] uppercase text-gold-gradient">
-            Book Your Seat Now
+            SOLD OUT
           </span>
         </span>
         <ArrowRight className="w-4 h-4 text-[#F0C149] group-hover:translate-x-0.5 transition-transform" />
