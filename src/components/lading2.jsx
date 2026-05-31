@@ -14,6 +14,7 @@ import MeetGuide from "./sections/MeetGuide";
 // import diamondExperience from "./sections/diamondExperience";
 import Timeline from "./sections/Timeline";
 import LuxuryTickets from "./sections/LuxuryTickets";
+import GuruPurnimaModal from "./sections/guruPoornimaModal";
 import {
   MapPin,
   Calendar,
@@ -168,6 +169,7 @@ export default function LandingPage2() {
     <div className="bg-[#030305] text-[#F5ECD0] has-sticky-cta relative overflow-x-hidden">
       <Toaster position="top-center" richColors />
 
+      <GuruPurnimaModal />
       {/* =========================================================
           SECTION 1 — HERO (diamond, divine composition, two-column)
       ========================================================= */}
