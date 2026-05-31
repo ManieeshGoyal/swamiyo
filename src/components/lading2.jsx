@@ -211,7 +211,7 @@ export default function LandingPage2() {
             </span>
             <ArrowRight className="w-4 h-4" />
           </button>
-           <button
+          <button
             type="button"
             onClick={() => openBooking("diamond")}
             data-testid="hero-book-btn"
@@ -220,7 +220,8 @@ export default function LandingPage2() {
           >
             <span className="flex flex-col items-start leading-tight text-left">
               <span className="text-[10px] pb-1 tracking-[0.22em] opacity-85">
-               platinum · ₹350 | <span className="text-red-600"> SOLD OUT</span>
+                platinum · ₹350 |{" "}
+                <span className="text-red-600"> SOLD OUT</span>
               </span>
               <span>SOLD OUT</span>
             </span>
@@ -489,7 +490,7 @@ export default function LandingPage2() {
                 key={i}
                 className="bg-[#0a0c11] border border-[#d4a73d]/15 p-7 md:p-9 lift-hover hover:border-[#d4a73d]/40 hover:bg-[#0e1118]"
               >
-                <div className="text-[#F0C149] mb-4">{x.icon}</div> 
+                <div className="text-[#F0C149] mb-4">{x.icon}</div>
                 <h3 className="font-serif text-xl sm:text-2xl text-[#F5ECD0] mb-2.5 font-bold leading-tight">
                   {x.title}
                 </h3>
@@ -508,7 +509,8 @@ export default function LandingPage2() {
               data-testid="experience-book-btn"
               className="btn-stock-out"
             >
-              SOLD OUT<ArrowRight className="w-4 h-4" />
+              SOLD OUT
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -581,9 +583,9 @@ export default function LandingPage2() {
                 type="button"
                 onClick={() => openBooking("gold")}
                 data-testid="immersive-book-btn"
-                className="btn-ghost-gold mt-9"
+                className="btn-stock-out  mt-9"
               >
-               SOLD OUT <ArrowRight className="w-4 h-4" />
+                SOLD OUT <ArrowRight className="w-4 h-4" />
               </button>
             </div>
 
@@ -1048,16 +1050,15 @@ export default function LandingPage2() {
           type="button"
           onClick={() => openBooking("gold")}
           data-testid="sticky-mobile-cta"
-          className="flex-[1.3] py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold border-t border-[#F0C149]"
+          className="flex-[1.3] btn-stock-out  py-3.5 text-center uppercase tracking-[0.15em] text-xs font-bold border-t border-[#F0C149]"
           style={{
-            background: "linear-gradient(180deg, #f0c149 0%, #c89a2e 100%)",
             color: "#0a0a0a",
           }}
         >
           <span className="block text-[9px] opacity-80 tracking-[0.2em]">
             gold · Recommended
           </span>
-          <span className="block text-sm font-black">₹200 · Book Now</span>
+          <span className="block text-sm font-black">₹200 · SOLD OUT </span>
         </button>
       </div>
     </div>
